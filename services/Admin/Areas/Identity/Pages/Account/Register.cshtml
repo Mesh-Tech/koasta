@@ -1,0 +1,83 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<section class="page--register">
+    <div class="register-brand"></div>
+    <form class="login-panel" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <div asp-validation-summary="All" class="register-error__content"></div>
+        <section class="register-form-section">
+            <h4>First, we need a few of your details</h4>
+            <fieldset class="aligned">
+                <label asp-for="Input.EmployeeName"></label>
+                <input asp-for="Input.EmployeeName" class="form-control" />
+                <span asp-validation-for="Input.EmployeeName" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.EmployeeEmail"></label>
+                <p>This will be the username you use to sign into your Koasta dashboard.</p>
+                <input asp-for="Input.EmployeeEmail" class="form-control" autocorrect="off" autocapitalize="none" />
+                <span asp-validation-for="Input.EmployeeEmail" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.EmployeePassword"></label>
+                <input asp-for="Input.EmployeePassword" class="form-control" autocorrect="off" autocapitalize="none" />
+                <span asp-validation-for="Input.EmployeePassword" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.ConfirmEmployeePassword"></label>
+                <input asp-for="Input.ConfirmEmployeePassword" class="form-control" autocorrect="off" autocapitalize="none" />
+                <span asp-validation-for="Input.ConfirmEmployeePassword" class="register-error__content"></span>
+            </fieldset>
+        </section>
+        <section class="register-form-section">
+            <h4>Next, please enter your company details</h4>
+            <fieldset class="aligned">
+                <label asp-for="Input.CompanyName"></label>
+                <input asp-for="Input.CompanyName" class="form-control" />
+                <span asp-validation-for="Input.CompanyName" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.CompanyAddress"></label>
+                <input asp-for="Input.CompanyAddress" class="form-control" />
+                <span asp-validation-for="Input.CompanyAddress" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.CompanyPostcode"></label>
+                <input asp-for="Input.CompanyPostcode" class="form-control" />
+                <span asp-validation-for="Input.CompanyPostcode" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.CompanyContact"></label>
+                <p>This should be the name of someone we can ask for if we need to contact the company over the phone, or by email.</p>
+                <input asp-for="Input.CompanyContact" class="form-control" />
+                <span asp-validation-for="Input.CompanyContact" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.CompanyPhone"></label>
+                <input asp-for="Input.CompanyPhone" class="form-control" />
+                <span asp-validation-for="Input.CompanyPhone" class="register-error__content"></span>
+            </fieldset>
+            <fieldset class="aligned">
+                <label asp-for="Input.CompanyEmail"></label>
+                <input asp-for="Input.CompanyEmail" class="form-control" />
+                <span asp-validation-for="Input.CompanyEmail" class="register-error__content"></span>
+            </fieldset>
+        </section>
+        <section class="register-form-section">
+            <h4>Finally, please enter a name for the first venue you want to add. We'll set it up for you.</h4>
+            <fieldset class="aligned">
+                <label asp-for="Input.VenueName"></label>
+                <input asp-for="Input.VenueName" class="form-control" />
+                <span asp-validation-for="Input.VenueName" class="register-error__content"></span>
+            </fieldset>
+        </section>
+        <button type="submit" class="classic-button secondary">Register</button>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

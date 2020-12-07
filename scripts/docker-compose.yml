@@ -1,0 +1,42 @@
+version: '2'
+services:
+  database:
+    image: mdillon/postgis:9.6
+    environment:
+      - POSTGRES_USER=pubcrawladmin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=pubcrawl
+    ports:
+      - "127.0.0.1:5432:5432"
+    expose:
+      - "5432"
+    volumes:
+      - ./docker/sql/:/docker-entrypoint-initdb.d/
+  database_admin:
+    image: dpage/pgadmin4
+    environment:
+    - PGADMIN_DEFAULT_PASSWORD=password
+    - PGADMIN_DEFAULT_EMAIL=pubcrawladmin
+    ports:
+      - "127.0.0.1:8080:80"
+    expose:
+      - "8080"
+    links:
+      - database
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+    - RABBITMQ_DEFAULT_USER=pubcrawladmin
+    - RABBITMQ_DEFAULT_PASS=password
+    ports:
+     - "127.0.0.1:5672:5672"
+     - "127.0.0.1:15672:15672"
+    expose:
+     - "5672"
+     - "15672"
+  memcached:
+    image: memcached:1.5.16
+    ports:
+     - "127.0.0.1:11211:11211"
+    expose:
+     - "11211"

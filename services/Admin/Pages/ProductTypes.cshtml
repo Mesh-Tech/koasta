@@ -1,0 +1,44 @@
+@page
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model ProductTypesModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">Product Types</span> <span class="badge badge-secondary align-middle">@Model.ProductTypes.Count</span></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mb-auto" role="group" aria-label="Pagination">
+                @if(Model.PageNumber > 0)
+                {
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="/ProductTypes" asp-route-pagenumber="@(Model.PageNumber - 1)">Previous</a>
+                }
+                @if(Model.HasNextPage)
+                {
+                <a class="btn btn-sm btn-outline-secondary" asp-page="/ProductTypes" asp-route-pagenumber="@(Model.PageNumber + 1)">Next</a>
+                }
+                @if(Model.Role.CanAdministerSystem)
+                {
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="/AddProductType"><span>New Product Type</span></a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4">
+        @foreach (var producttype in Model.ProductTypes)
+        {
+            <div class="card col w-100 w-sm-100 w-md-48 w-lg-48 w-xl-23 mb-4 mb-md-2 mb-lg-2 mb-xl-2 mr-auto mr-md-2 mr-lg-2 mr-xl-2">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span class="align-middle mr-2">@producttype.ProductTypeName</span>
+                    </h5>
+                    <p class="card-text"></p>
+                    <a class="btn btn-primary btn-sm stretched-link" asp-page="/ProductType" asp-route-producttypeid="@producttype.ProductTypeId">View details</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>

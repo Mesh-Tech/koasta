@@ -1,0 +1,7 @@
+ALTER TABLE "Venue" DROP CONSTRAINT FK_Venue_Image;
+ALTER TABLE "CustomerOrder" DROP CONSTRAINT FK_Order_Employee;
+ALTER TABLE "CustomerOrder" ADD CONSTRAINT FK_Order_Employee FOREIGN KEY (employeeId) REFERENCES "Employee" (employeeId) ON UPDATE CASCADE;
+ALTER TABLE "Product" DROP CONSTRAINT FK_Product_Menu;
+ALTER TABLE "Product" ADD CONSTRAINT FK_Product_Menu FOREIGN KEY (menuId) REFERENCES "Menu" (menuId) ON UPDATE CASCADE;
+ALTER TABLE "OrderLine" DROP CONSTRAINT FK_OrderLine_Product;
+ALTER TABLE "OrderLine" ADD CONSTRAINT FK_OrderLine_Product FOREIGN KEY (productId) REFERENCES "Product" (productId) ON UPDATE CASCADE;

@@ -1,0 +1,46 @@
+@page "{companyId:int?}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model AddImageModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">New Image</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+
+            @if(Model.Role.CanAdministerSystem) {
+                <fieldset class="form-group">
+                    <label asp-for="Input.CompanyId">Company</label>
+                    <select class="form-control" asp-for="Input.CompanyId" data-input-type="select-input">
+                        @foreach(var company in Model.Companies)
+                        {
+                            <option value="@company.CompanyId">[CID: @company.CompanyId] @company.CompanyName</option>
+                        }
+                    </select>
+                    <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyId"></span>
+                </fieldset>
+            }
+            <fieldset class="form-group">
+                <label asp-for="Input.ImageName">Name</label>
+                <input asp-for="Input.ImageName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.ImageName"></span>
+            </fieldset>
+
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Content</h2>
+            <div class="custom-file">
+                <input type="file" asp-for="Input.ImageData" class="custom-file-input" id="imageData">
+                <label class="custom-file-label" for="imageData">Choose file</label>
+            </div>
+  
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4"><span>Save image</span></button>
+        </form>
+    </div>
+</section>

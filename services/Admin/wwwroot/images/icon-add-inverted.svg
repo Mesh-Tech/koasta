@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="288px" height="288px" viewBox="0 0 288 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-add</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M288,172 C288,178.6 282.6,184 276,184 L184,184 L184,276 C184,282.6 178.6,288 172,288 L116,288 C109.4,288 104,282.6 104,276 L104,184 L12,184 C5.4,184 0,178.6 0,172 L0,116 C0,109.4 5.4,104 12,104 L104,104 L104,12 C104,5.4 109.4,0 116,0 L172,0 C178.6,0 184,5.4 184,12 L184,104 L276,104 C282.6,104 288,109.4 288,116 L288,172 Z" id="icon-add" fill="#FFFFFF"></path>
+    </g>
+</svg>

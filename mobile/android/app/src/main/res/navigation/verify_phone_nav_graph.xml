@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/authentication_nav_graph"
+  app:startDestination="@id/verifyPhoneInputNumberFragment">
+
+  <fragment
+    android:id="@+id/verifyPhoneInputNumberFragment"
+    android:name="io.meshtech.koasta.fragment.VerifyPhoneInputNumberFragment"
+    tools:layout="@layout/fragment_authentication_input_number">
+
+    <action
+      android:id="@+id/action_verifyPhoneInputNumberFragment_to_verifyPhoneInputVerificationFragment"
+      app:destination="@id/verifyPhoneInputVerificationFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/verifyPhoneInputVerificationFragment"
+    android:name="io.meshtech.koasta.fragment.VerifyPhoneInputConfirmationFragment"
+    tools:layout="@layout/fragment_authentication_input_verification">
+  </fragment>
+</navigation>

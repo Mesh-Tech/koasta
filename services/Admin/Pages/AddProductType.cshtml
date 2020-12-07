@@ -1,0 +1,27 @@
+@page
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model AddProductTypeModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">New Product Type</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+
+            <fieldset class="form-group">
+                <input placeholder="Name" asp-for="Input.ProductTypeName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.ProductTypeName"></span>
+            </fieldset>
+  
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4"><span>Save product type</span></button>
+        </form>
+    </div>
+</section>

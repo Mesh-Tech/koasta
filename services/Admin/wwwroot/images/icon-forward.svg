@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="21px" viewBox="0 0 13 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pagination-controls" transform="translate(-190.000000, -11.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="next-button">
+                <g transform="translate(174.000000, 0.000000)">
+                    <polygon id="Shape" points="16 13.12625 18.1869792 11 29 21.5 29 21.5 29 21.5 18.1869792 32 16 29.87375 24.6192708 21.5"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,116 @@
+@page "{companyId:int?}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@using Koasta.Service.Admin.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model MediaModel
+
+@{
+    var imageActive = string.Equals(Model.MediaType, "image", StringComparison.OrdinalIgnoreCase);
+    var documentActive = string.Equals(Model.MediaType, "document", StringComparison.OrdinalIgnoreCase);
+    var allActive = !imageActive && !documentActive;
+    var shouldDisplayThumbnails = string.Equals(Model.MediaType, "image", StringComparison.OrdinalIgnoreCase);
+}
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">Media</span></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2" role="group" aria-label="Media type">
+                @if(Model.CompanyId == null)
+                {
+                    <a class="btn btn-sm btn-secondary @(allActive ? "active" : "")" asp-page="/Media" asp-route-mediatype="all">All</a>
+                    <a class="btn btn-sm btn-secondary @(imageActive ? "active" : "")" asp-page="/Media" asp-route-mediatype="image">Images</a>
+                    <a class="btn btn-sm btn-secondary @(documentActive ? "active" : "")" asp-page="/Media" asp-route-mediatype="document">Documents</a>
+                }
+                else if (!Model.Role.CanAdministerCompany)
+                {
+                    <a class="btn btn-sm btn-secondary @(allActive ? "active" : "")" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-mediatype="all">All</a>
+                    <a class="btn btn-sm btn-secondary @(imageActive ? "active" : "")" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-mediatype="image">Images</a>
+                }
+                else
+                {
+                    <a class="btn btn-sm btn-secondary @(allActive ? "active" : "")" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-mediatype="all">All</a>
+                    <a class="btn btn-sm btn-secondary @(imageActive ? "active" : "")" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-mediatype="image">Images</a>
+                    <a class="btn btn-sm btn-secondary @(documentActive ? "active" : "")" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-mediatype="document">Documents</a>
+                }
+            </div>
+            <div class="btn-group mb-auto mr-2" role="group" aria-label="Pagination">
+                @if(Model.PageNumber > 0)
+                {
+                    <a class="" asp-page="/Media" asp-route-pagenumber="@(Model.PageNumber - 1)">Previous</a>
+                }
+                @if(Model.HasNextPage)
+                {
+                <a class="btn btn-sm btn-outline-secondary" asp-page="/Media" asp-route-pagenumber="@(Model.PageNumber + 1)">Next</a>
+                }
+
+                @if(Model.PageNumber > 0)
+                {
+                    if(Model.CompanyId == null)
+                    {
+                        <a class="btn btn-sm btn-outline-secondary" asp-page="/Media" asp-route-pagenumber="@(Model.PageNumber - 1)" />
+                    }
+                    else
+                    {
+                        <a class="btn btn-sm btn-outline-secondary" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-pagenumber="@(Model.PageNumber - 1)" />
+                    }
+                }
+                @if(Model.HasNextPage)
+                {
+                    if(Model.CompanyId == null)
+                    {
+                        <a class="btn btn-sm btn-outline-secondary" asp-page="/Media" asp-route-pagenumber="@(Model.PageNumber + 1)" />
+                    }
+                    else
+                    {
+                        <a class="btn btn-sm btn-outline-secondary" asp-page="/Media" asp-route-companyid="@Model.CompanyId" asp-route-pagenumber="@(Model.PageNumber + 1)" />
+                    }
+                }
+            </div>
+
+            <div class="btn-group mb-auto" role="group" aria-label="Add new...">
+                @if(Model.Role.CanAdministerVenue)
+                {
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="/AddImage" asp-route-companyid="@Model.CompanyId"><span>New Image</span></a>
+                }
+                @if(Model.Role.CanAdministerCompany)
+                {
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="/AddDocument" asp-route-companyid="@Model.CompanyId"><span>New Document</span></a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4">
+        @foreach (var entry in Model.MediaEntries)
+        {
+            if (entry.Type == MediaFileType.Image)
+            {
+                <div class="card col w-100 w-sm-100 w-md-48 w-lg-48 w-xl-23 mb-4 mb-md-2 mb-lg-2 mb-xl-2 mr-auto mr-md-2 mr-lg-2 mr-xl-2">
+                    @if(shouldDisplayThumbnails)
+                    {
+                        <img src="@entry.ThumbnailUrl" alt="@entry.Title">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@entry.Title</h5>
+                        <a class="btn btn-primary btn-sm stretched-link" asp-page="/Image" asp-route-imageid="@entry.Id">View details</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card col w-100 w-sm-100 w-md-48 w-lg-48 w-xl-23 mb-4 mb-md-2 mb-lg-2 mb-xl-2 mr-auto mr-md-2 mr-lg-2 mr-xl-2">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="align-middle mr-2">@entry.Title</span>
+                        </h5>
+                        <a class="btn btn-primary btn-sm stretched-link" asp-page="/Document" asp-route-documentid="@entry.Id">View details</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>

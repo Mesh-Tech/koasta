@@ -1,0 +1,18 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Koasta.Shared.Models
+{
+    [CompilerGeneratedAttribute()]
+    public partial class NewOrderItem
+    {
+        [Column("productId")]
+        public int ProductId { get; set; }
+        [Column("quantity")]
+        public int Quantity { get; set; }
+        [Column("amount")]
+        public decimal Amount { get; set; }
+    }
+}

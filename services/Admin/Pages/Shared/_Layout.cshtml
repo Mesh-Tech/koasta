@@ -1,0 +1,90 @@
+﻿@using Koasta.Shared.Configuration
+@inject IEnvironment Environment
+
+@{
+    var showNav = !(ViewData["HideNavigation"] as bool?).GetValueOrDefault(false);
+    var showNavClass = showNav ? "main" : "";
+    var testModeClass = Environment.IsProduction ? "" : " test-mode";
+    var navClass = $"{showNavClass} {testModeClass}";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <title>Koasta</title>
+    <base href="/" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+    <link href="/css/chartist.min.css" rel="stylesheet" />
+    <link href="/lib/tagify.css" rel="stylesheet" />
+    <link href="/lib/select2.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="/lib/turbolinks.min.js"></script>
+</head>
+
+<body>
+    @if (showNav)
+    {
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" asp-page="/Index">
+                <img src="/images/logo-dark.png" width="30" height="30" class="d-inline-block align-top" alt=""
+                    loading="lazy">
+                <span>koasta</span>
+            </a>
+            <button class="navbar-toggler position-absolute d-md-none" type="button" data-toggle="collapse"
+                data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <form class="nav-session" asp-area="Identity" asp-page="/Account/Logout"
+                        asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <button class="nav-link btn btn-link" type="submit">Sign out</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    }
+
+    @if (showNav)
+    {
+        <div class="container-fluid @navClass">
+            <div class="row">
+                <partial name="_Nav" />
+                <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    }
+    else
+    {
+        <main class="root" role="main">
+            @RenderBody()
+        </main>
+    }
+
+    @RenderSection("Scripts", required: false)
+
+    <script src="/js/jquery.min.js" data-turbolinks-eval="false"></script>
+    <script src="/lib/jquery.tagify.min.js" data-turbolinks-eval="false"></script>
+    <script src="/lib/select2.min.js" data-turbolinks-eval="false"></script>
+    <script src="/js/popper.min.js" data-turbolinks-eval="false"></script>
+    <script src="/js/bootstrap.min.js" data-turbolinks-eval="false"></script>
+    <script src="/js/bs-custom-file-input.min.js" data-turbolinks-eval="false"></script>
+    <script src="/js/chartist.min.js" data-turbolinks-eval="false"></script>
+    <script src="/js/chartist-plugin-tooltip.min.js" data-turbolinks-eval="false"></script>
+    <script src="/js/_enhance.js" type="text/javascript"></script>
+    <script src="/js/enhance.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+.footer {
+  background: $colour-light-grey;
+  text-align: center;
+  padding-top: 44px;
+  padding-bottom: 44px;
+
+  @include mq($from: mobile, $until: tablet) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    color: $colour-dark-grey;
+  }
+
+  p {
+    margin-top: 76px;
+    margin-bottom: 0;
+    color: $colour-dark-grey;
+
+    @include mq($from: mobile, $until: tablet) {
+      margin-top: 42px;
+    }
+  }
+}
+
+.footer__social-icons {
+  display: block;
+}
+
+.footer__social-icon, .footer__social-icon:hover, .footer__social-icon:active, .footer__social-icon:visited {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 62px;
+  margin-top: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer__social-icon:last-of-type {
+  margin-right: 0;
+}
+
+.footer__social-icon.twitter {
+  background-size: 50px 41px;
+  background-image: url('../images/Icon-Twitter.svg')
+}
+
+.footer__social-icon.twitter:active, .footer__social-icon.twitter:hover {
+  background-image: url('../images/Icon-Twitter-Active.svg')
+}
+
+.footer__social-icon.facebook {
+  background-size: 25px 50px;
+  background-image: url('../images/Icon-Facebook.svg')
+}
+
+.footer__social-icon.facebook:active, .footer__social-icon.facebook:hover {
+  background-image: url('../images/Icon-Facebook-Active.svg')
+}
+
+.footer__social-icon.linkedin {
+  background-size: 50px 50px;
+  background-image: url('../images/Icon-LinkedIn.svg')
+}
+
+.footer__social-icon.linkedin:active, .footer__social-icon.linkedin:hover {
+  background-image: url('../images/Icon-LinkedIn-Active.svg')
+}

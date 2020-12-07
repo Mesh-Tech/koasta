@@ -1,0 +1,42 @@
+input {
+  border: solid $colour-light-grey 4px;
+  background: white;
+  font-size: 1.05rem;
+  font-family: 'Gotham Book';
+  font-weight: 300;
+  color: black;
+  padding: 12px;
+  line-height: 1;
+  transition: border 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+input:focus {
+  border-color: $colour-dark-grey;
+  outline: none;
+}
+
+input.error {
+  border-color: $colour-bad;
+}
+
+input.dark {
+  border: solid $colour-medium-grey 4px;
+  background: transparent;
+  font-size: 1.05rem;
+  font-family: 'Gotham Book';
+  font-weight: 300;
+  color: white;
+  padding: 12px;
+  line-height: 1;
+  transition: border 0.3s ease-in-out;
+}
+
+input.dark:focus {
+  border-color: $colour-light-grey;
+  outline: none;
+}
+
+input.dark.error {
+  border-color: $colour-bad;
+}

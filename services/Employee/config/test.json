@@ -1,0 +1,56 @@
+{
+    "logging": {
+        "log_config": "config/log4rs.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test"
+    },
+    "auth": {
+        "hash_cost": 10
+    },
+    "meta": {
+        "path_base": "/employee",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_own_employee": {
+                "user_type": "employee"
+            },
+            "list_company_employees": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "list_employee_roles": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "list_employees": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "list_venue_employees": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "update_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            }
+        }
+    }
+}

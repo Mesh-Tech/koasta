@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="io.meshtech.koasta.fragment.VenueListFragment"
+  android:theme="@style/AppTheme"
+  android:orientation="vertical">
+
+  <include
+    android:id="@+id/venues_empty_location_card"
+    layout="@layout/layout_enable_location_card"
+    android:visibility="gone"
+    tools:visibility="visible" />
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/refresh"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/venue_list_recycler"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

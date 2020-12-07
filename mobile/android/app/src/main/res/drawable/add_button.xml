@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+    android:start="29dp"
+    android:end="29dp"
+    android:gravity="center">
+    <shape android:shape="rectangle">
+      <corners android:radius="8dp" />
+      <solid android:color="@color/add_button_background"/>
+      <size android:width="29dp" android:height="29dp" />
+    </shape>
+  </item>
+
+  <item android:start="21dp"
+    android:end="20dp"
+    android:gravity="center">
+    <shape android:shape="rectangle">
+      <solid android:color="@color/colorPrimary" />
+      <size android:width="16dp" android:height="3dp" />
+    </shape>
+  </item>
+
+  <item android:start="21dp"
+    android:end="20dp"
+    android:gravity="center">
+    <shape android:shape="rectangle">
+      <solid android:color="@color/colorPrimary" />
+      <size android:width="3dp" android:height="16dp" />
+    </shape>
+  </item>
+</layer-list>
+

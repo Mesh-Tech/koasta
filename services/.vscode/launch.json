@@ -1,0 +1,246 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "admin",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-admin",
+      "program": "${workspaceFolder}/admin/bin/Debug/netcoreapp3.1/admin.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/admin",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "PUBCRAWL_ENVIRONMENT": "default"
+      },
+      "logging": {
+          "engineLogging": false,
+          "moduleLoad": false,
+          "exceptions": false,
+          "browserStdOut": false
+      }
+    },
+    {
+      "name": "auth",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-auth",
+      "program": "${workspaceFolder}/auth/bin/Debug/netcoreapp3.1/auth.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/auth",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "PUBCRAWL_ENVIRONMENT": "default"
+      },
+      "logging": {
+          "engineLogging": false,
+          "moduleLoad": false,
+          "exceptions": false,
+          "browserStdOut": false
+      }
+    },
+    {
+      "name": "company",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-company",
+      "program": "${workspaceFolder}/company/bin/Debug/netcoreapp3.1/company.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/company",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "employee",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-employee",
+      "program": "${workspaceFolder}/employee/bin/Debug/netcoreapp3.1/employee.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/employee",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "event",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-event",
+      "program": "${workspaceFolder}/event/bin/Debug/netcoreapp3.1/event.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/event",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "image",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-image",
+      "program": "${workspaceFolder}/image/bin/Debug/netcoreapp3.1/image.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/image",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "menu",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-menu",
+      "program": "${workspaceFolder}/menu/bin/Debug/netcoreapp3.1/menu.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/menu",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "order",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-order",
+      "program": "${workspaceFolder}/order/bin/Debug/netcoreapp3.1/order.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/order",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "product",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-product",
+      "program": "${workspaceFolder}/product/bin/Debug/netcoreapp3.1/product.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/product",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "subscription",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-subscription",
+      "program": "${workspaceFolder}/subscription/bin/Debug/netcoreapp3.1/subscription.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/subscription",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "tag",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-tag",
+      "program": "${workspaceFolder}/tag/bin/Debug/netcoreapp3.1/tag.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/tag",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "user",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-user",
+      "program": "${workspaceFolder}/user/bin/Debug/netcoreapp3.1/user.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/user",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "venue",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-venue",
+      "program": "${workspaceFolder}/venue/bin/Debug/netcoreapp3.1/venue.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/venue",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "monolith",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-monolith",
+      "program": "${workspaceFolder}/monolith/bin/Debug/netcoreapp3.1/monolith.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/monolith",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "flags",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-flags",
+      "program": "${workspaceFolder}/flags/bin/Debug/netcoreapp3.1/flags.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/flags",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "scheduler",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-flags",
+      "program": "${workspaceFolder}/scheduler/bin/Debug/netcoreapp3.1/scheduler.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/scheduler",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  ]
+}

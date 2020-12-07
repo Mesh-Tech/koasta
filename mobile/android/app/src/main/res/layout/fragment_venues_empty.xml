@@ -1,0 +1,50 @@
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="io.meshtech.koasta.fragment.VenuesEmptyFragment"
+  android:theme="@style/AppTheme"
+  android:orientation="vertical">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <include
+      android:id="@+id/venues_empty_location_card"
+      layout="@layout/layout_enable_location_card"
+      android:visibility="gone" />
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_centerInParent="true">
+      <TextView
+        android:id="@+id/venues_empty_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/venues_no_venues_title"
+        android:textSize="24sp"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/venues_no_venues_description"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:alpha="0.8"
+        />
+    </LinearLayout>
+
+  </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:padding="18dp"
+  android:orientation="vertical"
+  android:theme="@style/AppTheme">
+
+  <TextView
+    android:id="@+id/venue_detail_info_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="20sp"
+    android:fontFamily="@font/manrope_medium"
+    tools:text="The Miller" />
+
+  <TextView
+    android:id="@+id/venue_detail_info_subtitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:textStyle="normal"
+    tools:text="Your local hipster pub"
+    android:layout_marginTop="6dp"
+    android:visibility="gone"
+    tools:visibility="visible" />
+
+</LinearLayout>

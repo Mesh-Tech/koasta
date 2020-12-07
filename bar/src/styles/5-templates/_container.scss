@@ -1,0 +1,14 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: $colour-dark-grey;
+}
+
+#approot {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}

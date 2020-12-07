@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="io.meshtech.koasta.fragment.VenuesLoadingFragment"
+  android:theme="@style/AppTheme"
+  android:orientation="vertical">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/venues_loading_scrollview"
+    tools:ignore="UselessParent">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+      <include android:id="@+id/venues_loading_placeholder_a" layout="@layout/layout_venue_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_b" layout="@layout/layout_venue_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_c" layout="@layout/layout_venue_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_d" layout="@layout/layout_venue_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_e" layout="@layout/layout_venue_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_f" layout="@layout/layout_venue_loading_item" />
+    </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+{
+    "logging": {
+        "log_config": "config/log4rs.yml"
+    },
+    "connection": {
+        "public_url": "https://test.api.koasta.com",
+        "uses_api_ns": false,
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/company",
+        "debug": true,
+        "api_scopes": {
+            "v2.list_companies": "admin"
+        },
+        "api_auth_requirements": {
+            "v2.create_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "v2.delete_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "v2.fetch_company": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "v2.list_companies": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "v2.update_company": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "create_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_company": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "list_companies": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "update_company": {
+                "user_type": "employee",
+                "administer_company": true
+            }
+        }
+    }
+}

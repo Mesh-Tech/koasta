@@ -1,0 +1,41 @@
+@page "{flagId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model EditFlagModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Title</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            
+            <fieldset class="form-group">
+                <label asp-for="Input.FlagName">Name</label>
+                <input placeholder="Name" asp-for="Input.FlagName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.FlagName"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.FlagDescription">Description</label>
+                <input placeholder="Name" asp-for="Input.FlagDescription" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.FlagDescription"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-check">
+                    <input asp-for="Input.FlagValue" type="checkbox" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Input.FlagValue">
+                        Is Active
+                    </label>
+                </div>
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.FlagValue"></span>
+            </fieldset>
+
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4">Save changes</button>
+        </form>
+    </div>
+</section>

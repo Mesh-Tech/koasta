@@ -1,0 +1,73 @@
+@page "{menuId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model MenuModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Menu.MenuName</span></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            @if(Model.Role.CanAdministerVenue)
+            {
+                <a class="btn btn-sm btn-outline-secondary mr-2" asp-page="/EditMenu" asp-route-menuid="@Model.Menu.MenuId">
+                    <partial name="_IconEdit" />
+                    <span class="ml-1 align-middle">Edit</span>
+                </a>
+                <div class="btn-group dropleft" role="group">
+                    <button id="manageDrop" type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="manageDrop">
+                        <form class="action-form" method="POST">
+                            <input type="hidden" name="action" value="delete" /> 
+                            <button type="submit" class="dropdown-item">
+                                <partial name="_IconDelete" />
+                                <span class="ml-1 align-middle">Delete</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Details
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong class="col-3">Name</strong>
+                    <div class="col-9">@(string.IsNullOrWhiteSpace(Model.Menu.MenuName) ? "-" : Model.Menu.MenuName)</div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Description</strong>
+                    <div class="col-9">@(string.IsNullOrWhiteSpace(Model.Menu.MenuDescription) ? "-" : Model.Menu.MenuDescription)</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="h6 w-100 pt-3 pb-2 mb-3 ml-0 mr-0 border-bottom">Products</h2>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4">
+        @foreach (var product in Model.Menu.Products)
+        {
+            <div class="card col">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span class="align-middle mr-2">@product.ProductName</span>
+                    </h5>
+                    <p class="card-text">@product.ProductDescription</p>
+                    <a class="btn btn-primary btn-sm stretched-link" asp-page="/Product" asp-route-productid="@product.ProductId">View details</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>

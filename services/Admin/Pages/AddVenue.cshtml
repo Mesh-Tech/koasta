@@ -1,0 +1,113 @@
+@page "{companyId:int?}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model AddVenueModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">New Venue</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+            @if (Model.Role.CanAdministerSystem)
+            {
+                <fieldset class="form-group">
+                    <label asp-for="Input.CompanyId">Company</label>
+                    <select class="form-control" asp-for="Input.CompanyId" data-input-type="select-input">
+                        @foreach (var company in Model.Companies)
+                        {
+                            <option value="@company.CompanyId">[CID: @company.CompanyId] @company.CompanyName</option>
+                        }
+                    </select>
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.CompanyId"></span>
+                </fieldset>
+            }
+              <fieldset class="form-group">
+                <label asp-for="Input.VenueName">Name</label>
+                <input asp-for="Input.VenueName" class="form-control" />
+                <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueName"></span>
+            </fieldset>
+
+            <div class="row">
+                <fieldset class="form-group col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <label asp-for="Input.VenueAddress">Address</label>
+                    <input asp-for="Input.VenueAddress" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueAddress"></span>
+                </fieldset>
+                <fieldset class="form-group col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <label asp-for="Input.VenueAddress2">Address line 2</label>
+                    <input asp-for="Input.VenueAddress2" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueAddress2"></span>
+                </fieldset>
+                <fieldset class="form-group col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <label asp-for="Input.VenueAddress3">Address Line 3</label>
+                    <input asp-for="Input.VenueAddress3" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueAddress3"></span>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <label asp-for="Input.VenueCounty">County</label>
+                    <input asp-for="Input.VenueCounty" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueCounty"></span>
+                </fieldset>
+                <fieldset class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <label asp-for="Input.VenuePostCode">Postcode</label>
+                    <input asp-for="Input.VenuePostCode" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenuePostCode"></span>
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <label asp-for="Input.VenueContact">Admin name / department</label>
+                    <input placeholder="John Smith" asp-for="Input.VenueContact" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueContact"></span>
+                </fieldset>
+                <fieldset class="form-group col-12 col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <label asp-for="Input.VenuePhone">Contact number</label>
+                    <input asp-for="Input.VenuePhone" class="form-control" />
+                    <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenuePhone"></span>
+                </fieldset>
+            </div>
+
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">App content</h2>
+            <fieldset class="form-group">
+                <label asp-for="Input.VenueDescription" data-toggle="tooltip" data-placement="right" title="The description you write for this venue appears in the Koasta app. Try to keep the description short, ideally no longer than a few sentences.">Description <partial name="_IconInfo" /></label>
+                <textarea asp-for="Input.VenueDescription" class="form-control"></textarea>
+                <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.VenueDescription"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.ImageId" data-toggle="tooltip" data-placement="right" title="This is the image of your venue that's shown in the app. For best results, use a rectangular image to prevent cropping.">Feature Image <partial name="_IconInfo" /></label>
+                <select class="form-control" asp-for="Input.ImageId" data-input-type="select-image-input">
+                    <option value="@null" data-opttype="none">None</option>
+                    @foreach (var type in Model.Images)
+                    {
+                        <option value="@type.ImageId" data-image-url="@type.ImageUrl">@type.ImageTitle</option>
+                    }
+                </select>
+                <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.ImageId"></span>
+            </fieldset>
+
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Legal</h2>
+            <fieldset class="form-group">
+                <label asp-for="Input.DocumentIds" data-toggle="tooltip" data-placement="right" title="You can attach documents you've uploaded to your company Media section here. We use these documents to verify you own the venue before making it visible in the Koasta app.">Supporting documentation <partial name="_IconInfo" /></label>
+                <select class="form-control" asp-for="Input.DocumentIds" data-input-type="select-input" multiple>
+                    @foreach (var type in Model.Documents)
+                    {
+                        <option value="@type.DocumentId">@type.DocumentTitle</option>
+                    }
+                </select>
+                <span class="alert alert-danger d-inline-block mt-2" role="alert" asp-validation-for="Input.ImageId"></span>
+            </fieldset>
+
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4"><span>Save venue</span></button>
+        </form>
+    </div>
+</section>

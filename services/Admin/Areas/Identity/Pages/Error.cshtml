@@ -1,0 +1,14 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<section class="page--dash">
+    <h1>Something went wrong</h1>
+    <p>Sorry about that, we're looking into it now.</p>
+    @if(Model.ShowRequestId)
+    {
+        <p>Request Id: @Model.RequestId</p>
+    }
+</section>

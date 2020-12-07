@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  app:layout_constrainedHeight="true"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:foreground="?android:attr/selectableItemBackground"
+  android:clickable="true"
+  android:focusable="true"
+  android:theme="@style/AppTheme">
+
+  <TextView
+    android:id="@+id/order_item_title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:textSize="17sp"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    tools:text="The Miller" />
+
+  <TextView
+    android:id="@+id/order_item_subtitle"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:fontFamily="@font/manrope_medium"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintTop_toBottomOf="@id/order_item_title"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="2dp"
+    android:layout_marginStart="16dp"
+    tools:text="Southwark" />
+
+  <TextView
+    android:id="@+id/order_item_comment"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:lines="1"
+    android:textSize="14sp"
+    android:fontFamily="@font/manrope_medium"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintTop_toBottomOf="@id/order_item_subtitle"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toLeftOf="@id/order_item_price"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    tools:text="Some text goes here" />
+
+  <TextView
+    android:id="@+id/order_item_price"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginEnd="20dp"
+    android:textAlignment="textEnd"
+    app:layout_constraintTop_toTopOf="@id/order_item_comment"
+    app:layout_constraintBottom_toBottomOf="@id/order_item_comment"
+    app:layout_constraintLeft_toRightOf="@id/order_item_comment"
+    app:layout_constraintRight_toRightOf="parent"
+    android:textColor="@color/colorAccent"
+    tools:text="£12.99"
+    app:layout_constrainedHeight="true"
+    app:layout_constrainedWidth="true"/>
+
+  <View
+    android:background="@color/colorAccentLight"
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    app:layout_constraintTop_toBottomOf="@id/order_item_price"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="20dp"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,55 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/venue",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_venue": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "delete_venue": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "fetch_company_venues": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "update_venue": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "create_review": {
+                "user_type": "user"
+            },
+            "update_review": {
+                "user_type": "user"
+            },
+            "admin_fetch_reviews": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "admin_update_review": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "admin_fetch_review": {
+                "user_type": "employee",
+                "work_with_venue": true
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon-Resize</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-2.3%" y="-1.6%" width="104.7%" height="103.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.18 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Home---Company-details---Edit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-970.000000, -526.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Form" filter="url(#filter-1)" transform="translate(595.000000, 515.000000)">
+                <g id="Form-content">
+                    <g id="Title-bar">
+                        <polygon id="Icon-Resize" points="388.2 15 390.07125 16.87125 387.675 19.26375 382.87125 24.07125 381 22.2 381 27 385.8 27 383.92875 25.12875 390.8025 18.25875 391.12875 17.92875 393 19.8 393 15"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

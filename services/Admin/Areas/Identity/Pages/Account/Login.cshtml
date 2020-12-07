@@ -1,0 +1,29 @@
+@page
+@model LoginModel
+
+<section class="page--login">
+    <div class="login-brand"></div>
+    <form id="account" class="login-panel" method="POST">
+        <fieldset class="aligned">
+            <input asp-for="Input.Username" id="login_username" name="username" placeholder="Username" type="text" class="inset" novalidate autocorrect="off" autocapitalize="none" />
+        </fieldset>
+
+        <fieldset class="aligned">
+            <input asp-for="Input.Password" id="login_password" name="password" placeholder="Password" type="password" class="inset" novalidate autocorrect="off" autocapitalize="none">
+        </fieldset>
+
+        @if(!ViewData.ModelState.IsValid) {
+            <p>@Html.ValidationMessage("mpLoginError")</p>
+        }
+
+        <button id="login_button" type="submit" class="classic-button secondary">Log in</button>
+
+        <fieldset class="aligned">
+            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+        </fieldset>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

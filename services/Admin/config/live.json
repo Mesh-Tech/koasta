@@ -1,0 +1,35 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": false,
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "CHANGEME",
+        "s3_private_bucket_name": "koasta-pvt-uploads-live",
+        "cf_private_root_endpoint": "https://dz5x25xwp11qc.cloudfront.net",
+        "stub_messaging": false,
+        "rabbitmq_hostname": "internal-rabbitmq-live-rabbitmq-elb-1139617302.eu-west-1.elb.amazonaws.com",
+        "rabbitmq_username": "admin",
+        "rabbitmq_password": "CHANGEME",
+        "redis_url": "redis-redis-ha.data.svc.cluster.local:6379"
+    },
+    "meta": {
+        "debug": false,
+        "hack_workaround_https_enabled": true,
+        "enable_access_token_encryption": true
+    },
+    "auth": {
+        "hash_cost": 10,
+        "auth_token_validity_minutes": 5,
+        "refresh_token_validity_minutes": 30,
+        "facebook_auth_verify_url": "https://graph.facebook.com/me/?fields=name,email&access_token={0}",
+        "mailjet_api_key": "8783b6d7096fb563b9e3cd2edabc0837",
+        "mailjet_secret_key": "31c7e3aa8421ccce911028c83cbe659e"
+    }
+}

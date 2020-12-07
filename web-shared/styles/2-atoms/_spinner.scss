@@ -1,0 +1,32 @@
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+
+.spinner {
+    position: relative;
+    padding-left: 25px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $colour-navy;
+    margin-bottom: 10px;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.spinner::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 70%;
+    border: 2px solid transparent;
+    border-top-color: $colour-navy;
+    animation: spinner 1.2s linear infinite;
+}

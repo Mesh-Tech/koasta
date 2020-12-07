@@ -1,0 +1,244 @@
+FORMAT: 1A
+HOST: https://test.api.koasta.com
+
+# Koasta Mobile API
+## Version 1.0
+
+The Koasta Mobile API allows for the consumption of data in the Koasta system.
+It is only usable with mobile devices.
+
+# Group Authentication
+
+Authentication in Koasta is handled similarly to OAuth 2, however in a much simpler format.
+
+In order to facilitate passwordless authentication, there is a two stage authentication flow:
+
+1. Collect the user's phone number, perform a [Create session](#authentication-authenticating-with-credentials-post)
+   request with the phone number and no token
+2. After receiving a 401, the end-user will receive a verification code, accept this input and
+   retry the request with the original phone number and the verification code
+
+The remaining process is identical to the Administration API.
+
+:::note
+Token expiry is completely opaque from the consumer. It is up to the consumer to handle 401
+responses and attempt to refresh. If refreshing also returns a 401, you must re-authenticate
+with credentials.
+:::
+
+:::warning
+When performing authentication requests for a mobile device, you must provide a valid User-Agent
+header. Otherwise, it will be treated as an admin authentication request.
+
+`{platform_identifier}` should correspond to one of the following values depending on supported
+platform:
+- ios
+- android
+:::
+
+## Authenticating with credentials [/auth/authorise]
+
+### Create session [POST]
+
++ request (application/json)
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+
+    + Attributes (AuthenticationRequest)
++ Response 200 (application/json)
+    + Attributes (AuthenticationResponse)
+
+## Refreshing a login session [/auth/refresh]
+
+### Refresh session [POST]
+
++ request(application/json)
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
+    + Attributes (RefreshRequest)
++ Response 200 (application/json)
+    + Attributes (AuthenticationResponse)
+
+## Authenticating with Payment Providers [/auth/payment-key/{customer_id}]
+
++ Parameters
+    + customer_id (string) - The Customer ID returned from the client-side payment provider SDK
+
+### Request payment key [POST]
+
++ request
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (PaymentKeyResponse)
+
+## Data Structures
+
+### AuthenticationRequest
++ phoneNumber (string, required)
++ verificationCode (string, optional)
+
+### AuthenticationResponse
++ authToken (string, required)
++ refreshToken (string, required)
+
+### RefreshRequest
++ refreshToken (string, required)
+
+### PaymentKeyResponse
++ key (object, required)
+
+# Group Venues
+
+## Finding venues near a user's current location [/venue/nearby-venues/{lat}/{lon}]
+
++ Parameters
+    + lat (number) - The user's current latitude
+    + lon (number) - The user's current longitude
+
+### Get nearby venues [GET]
+
++ request
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+
++ Response 200 (application/json)
+    + Attributes (array[VenueResponse])
+
+## Data Structures
+
+### VenueResponse
++ venueId (number, required)
++ companyId (number, required)
++ venueCode (string, required)
++ venueName (string, required)
++ venueAddress (string, required)
++ venuePostCode (string, required)
++ venuePhone (string, required)
++ venueContact (string, optional)
++ venueDescription (string, optional)
++ venueNotes (string, optional)
++ venueImage (string, optional)
++ imageId (number, optional)
++ venueLatitude (string, optional)
++ venueLongitude (string, optional)
++ tags (array[string], optional)
++ imageUrl (string, optional)
+
+# Group Menus
+
+## Getting a full menu list for a venue [/menu/{venue_id}]
+
++ Parameters
+    + venue_id (number) - A Venue ID
+
+### Get venue menu list [GET]
+
++ request
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+
++ Response 200 (application/json)
+    + Attributes (array[Menu])
+
+## Data Structures
+
+### MenuItem
++ productId (number, required)
++ productType (string, required)
++ productName (string, required)
++ productDescription (string, optional)
++ price (number, required)
++ image (string, optional)
++ ageRestricted (boolean, required)
+
+### Menu
++ menuId (number, required)
++ venueId (number, required)
++ menuDescription (string, optional)
++ menuName (string, required)
++ menuImage (string, optional)
++ products (array[MenuItem], required)
+
+# Group Orders
+
+## Managing orders [/order]
+
+### Create order [POST]
+
++ request(application/json)
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewOrder)
+
++ Response 200 (application/json)
+
+## Getting an order [/order/{order_id}]
+
++ Parameters
+    + order_id (number) - An Order ID
+
+### Get order [GET]
+
++ request
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+
++ Response 200 (application/json)
+    + Attributes (Order)
+
+## Getting an order's status [/order/{order_id}/status]
+
++ Parameters
+    + order_id (number) - An Order ID
+
+### Get order status [GET]
+
++ request
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+
++ Response 200 (application/json)
+    + Attributes (OrderStatus)
+
+## Data Structures
+
+### OrderItem
++ amount (number, required)
++ quantity (number, required)
++ drinkName (string, required)
+
+### Order
++ orderId (number, required)
++ orderNumber (number, required)
++ orderedAt: "2008-09-15T15:53:00" (string, required)
++ status (string, required)
++ customerFirstName (string, optional)
++ customerLastName (string, optional)
++ lineItems (array[OrderItem], required)
+
+### NewOrderItem
++ venueId (number, required)
++ productId (number, required)
++ quantity (number, required)
+
+### NewOrder
++ orderLines (array[NewOrderItem], required)
++ paymentProcessorReference (string, required)
+
+### OrderStatus
++ orderId (number, required)
++ status (string, required)

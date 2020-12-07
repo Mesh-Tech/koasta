@@ -1,0 +1,96 @@
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+fieldset.aligned {
+    label {
+        display: block;
+        margin-bottom: 10px;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    input, textarea, select {
+        display: block;
+        width: calc(100% - 20px);
+    }
+
+    input[type=checkbox] {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        min-width: auto;
+        vertical-align: middle;
+        margin-left: 10px;
+        position: relative;
+        border: none;
+    }
+
+    input[type=checkbox]::before {
+        content: '';
+        position: absolute;
+        background-image: url('../images/square.svg');
+        width: 30px;
+        height: 30px;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        top: 4px;
+        left: 0;
+    }
+
+    input[type=checkbox]:checked::before {
+        content: '';
+        position: absolute;
+        background-image: url('../images/check-square.svg');
+        width: 30px;
+        height: 30px;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        top: 4px;
+        left: 0;
+    }
+
+    table {
+        margin: 0;
+    }
+
+    table + .select--combi {
+        margin-top: 20px;
+    }
+
+    select.select--combi {
+        display: inline-block;
+        width: calc(100% - 138px);
+        padding-top: 8.5px;
+        padding-bottom: 8.5px;
+        margin-right: 5px;
+    }
+
+    .select--combi:hover + .button.button--solid.button--combi, .select--combi:focus + .button.button--solid.button--combi {
+        border-left-color: $colour-accent-bright;
+    }
+
+    .button.button--solid.button--combi, .button.button--solid.button--combi:visited, .button.button--solid.button--combi:disabled:hover {
+        @extend .button--solid;
+        border-radius: 3px;
+        border-width: 2px;
+        margin: 0;
+        background: none;
+        transition: all 0.2s ease-in-out;
+        margin-left: 10px;
+    }
+
+    .button.button--solid.button--combi, .button.button--solid.button--combi:visited {
+        color: $colour-navy;
+        background: none;
+    }
+
+    .button.button--solid.button--combi:hover, .button.button--solid.button--combi:focus {
+        color: $colour-lighter-navy;
+        outline: none;
+    }
+}

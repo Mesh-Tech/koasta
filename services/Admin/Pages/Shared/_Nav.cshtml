@@ -1,0 +1,236 @@
+@using Microsoft.AspNetCore.Identity
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@inject RoleManager<EmployeeRole> RoleManager
+
+@{ 
+    var subnavVenueId = (ViewData["SubnavVenueId"] as int?).GetValueOrDefault(-1);
+    var showSubnav = subnavVenueId > -1;
+    var subnavCompanyId = (ViewData["SubnavCompanyId"] as int?).GetValueOrDefault(-1);
+    var showCompanySubnav = subnavCompanyId > -1;
+    var employee = await UserManager.GetUserAsync(User);
+    var role = employee == null ? null : await RoleManager.FindByIdAsync(employee.RoleId.ToString());
+}
+
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="">
+    <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+            <li class="nav--item nav-item-overview">
+                <a class="nav-link" asp-area="" asp-page="/Index" active-when="/Index">
+                    <partial name="_IconOverview" />
+                    <span>Overview</span>
+                </a>
+            </li>
+            @if(role.CanAdministerSystem) {
+                <li class="nav--item nav-item-company-list">
+                    <a class="nav-link" asp-page="/Companies" active-when="/Companies">
+                        <partial name="_IconCompanies" />
+                        <span>Companies</span>
+                    </a>
+                </li>
+                @if (showCompanySubnav) {
+                    <li class="nav--item nav--item-nested">
+                        <ul class="nav flex-column">
+                            <li class="nav--item nav-item-media-list">
+                                <a class="nav-link" asp-page="/Media" active-when="/Media" asp-route-companyid="@subnavCompanyId"  active-when-param="companyId">
+                                    <partial name="_IconMedia" />
+                                    <span>Media</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                <li class="nav--item nav-item-venue-list">
+                    <a class="nav-link" asp-page="/Venues" active-when="/Venues">
+                        <partial name="_IconVenues" />
+                        <span>Venues</span>
+                    </a>
+                </li>
+                @if (showSubnav) {
+                    <li class="nav--item nav--item-nested">
+                        <ul class="nav flex-column">
+                            <li class="nav--item nav-item-products-list">
+                                <a class="nav-link" asp-page="/Products" asp-route-venueid="@subnavVenueId" active-when="/Products"  active-when-param="venueId">
+                                    <partial name="_IconProducts" />
+                                    <span>Products</span>
+                                </a>
+                            </li>
+                            <li class="nav--item nav-item-menus-list">
+                                <a class="nav-link" asp-page="/Menus" asp-route-venueid="@subnavVenueId" active-when="/Menus"  active-when-param="venueId">
+                                    <partial name="_IconMenus" />
+                                    <span>Menus</span>
+                                </a>
+                            </li>
+                            <li class="nav--item nav-item-order-list">
+                                <a class="nav-link" asp-page="/Orders" asp-route-venueid="@subnavVenueId" active-when="/Orders" active-when-param="venueId">
+                                    <partial name="_IconOrders" />
+                                    <span>Orders</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                <li class="nav--item nav-item-media-list">
+                    <a class="nav-link" asp-page="/Media" asp-route-companyid="@null" active-when="/Media">
+                        <partial name="_IconMedia" />
+                        <span>Media</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-order-list">
+                    <a class="nav-link" asp-page="/Orders" active-when="/Orders">
+                        <partial name="_IconOrders" />
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-employee-list">
+                    <a class="nav-link" asp-page="/Employees" active-when="/Employees">
+                        <partial name="_IconEmployees" />
+                        <span>Employees</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-user-list">
+                    <a class="nav-link" asp-page="/Users" active-when="/Users">
+                        <partial name="_IconUsers" />
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-tags-list">
+                    <a class="nav-link" asp-page="/Tags" active-when="/Tags">
+                        <partial name="_IconTags" />
+                        <span>Tags</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-review-list">
+                    <a class="nav-link" asp-page="/Reviews" active-when="/Reviews">
+                        <partial name="_IconReviews" />
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-product-types-list">
+                    <a class="nav-link" asp-page="/ProductTypes" active-when="/ProductTypes">
+                        <partial name="_IconProductTypes" />
+                        <span>Product types</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-queries">
+                    <a class="nav-link" asp-page="/Queries" active-when="/Queries">
+                        <partial name="_IconQueries" />
+                        <span>Queries</span>
+                    </a>
+                </li>
+                <li class="nav--item nav-item-flags">
+                    <a class="nav-link" asp-page="/Flags" active-when="/Flags">
+                        <partial name="_IconFlags" />
+                        <span>Flags</span>
+                    </a>
+                </li>
+            } else {
+                @if (role.CanWorkWithCompany) {
+                    <li class="nav--item nav-item-company-details">
+                        <a class="nav-link" asp-page="/Company" asp-route-companyid="@employee.CompanyId" active-when="/Company">
+                            <partial name="_IconCompanies" />
+                            <span>Company details</span>
+                        </a>
+                    </li>
+                }
+                @if (showCompanySubnav) {
+                    <li class="nav--item nav--item-nested">
+                        <ul class="nav flex-column">
+                            <li class="nav--item nav-item-media-list">
+                                <a class="nav-link" asp-page="/Media" active-when="/Media" asp-route-companyid="@subnavCompanyId"  active-when-param="companyId">
+                                    <partial name="_IconMedia" />
+                                    <span>Media</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                @if (role.CanAdministerVenue) {
+                    <li class="nav--item nav-item-venue-list">
+                        <a class="nav-link" asp-page="/CompanyVenues" asp-route-companyid="@employee.CompanyId" active-when="/CompanyVenues" active-when-param="companyId">
+                            <partial name="_IconVenues" />
+                            <span>Venues</span>
+                        </a>
+                    </li>
+                    @if (showSubnav) {
+                        <li class="nav--item nav--item-nested">
+                            <ul class="nav flex-column">
+                                <li class="nav--item nav-item-products-list">
+                                    <a class="nav-link" asp-page="/Products" asp-route-venueid="@subnavVenueId" active-when="/Products"  active-when-param="venueId">
+                                        <partial name="_IconProducts" />
+                                        <span>Products</span>
+                                    </a>
+                                </li>
+                                <li class="nav--item nav-item-menus-list">
+                                    <a class="nav-link" asp-page="/Menus" asp-route-venueid="@subnavVenueId" active-when="/Menus"  active-when-param="venueId">
+                                        <partial name="_IconMenus" />
+                                        <span>Menus</span>
+                                    </a>
+                                </li>
+                                <li class="nav--item nav-item-order-list">
+                                    <a class="nav-link" asp-page="/Orders" asp-route-venueid="@subnavVenueId" active-when="/Orders" active-when-param="venueId">
+                                        <partial name="_IconOrders" />
+                                        <span>Orders</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    <li class="nav--item nav-item-employee-list">
+                        <a class="nav-link" asp-page="/Employees" active-when="/Employees">
+                            <partial name="_IconEmployees" />
+                            <span>Employees</span>
+                        </a>
+                    </li>
+                    @if(!role.CanWorkWithCompany)
+                    {
+                        <li class="nav--item nav-item-media-list">
+                            <a class="nav-link" asp-page="/Media" active-when="/Media" asp-route-companyid="@employee.CompanyId"  active-when-param="companyId">
+                                <partial name="_IconMedia" />
+                                <span>Media</span>
+                            </a>
+                        </li>
+                    }
+                } else if (role.CanWorkWithVenue) {
+                    <li class="nav--item nav-item-venue-details">
+                    <a class="nav-link" asp-page="/Venue" asp-route-venueid="@employee.VenueId" active-when="/Venue">
+                        <partial name="_IconVenues" />
+                        <span>Venue details</span>
+                    </a>
+                    @if (showSubnav) {
+                        <li class="nav--item nav--item-nested">
+                            <ul class="nav flex-column">
+                                <li class="nav--item nav-item-products-list">
+                                    <a class="nav-link" asp-page="/Products" asp-route-venueid="@subnavVenueId" active-when="/Products"  active-when-param="venueId">
+                                        <partial name="_IconProducts" />
+                                        <span>Products</span>
+                                    </a>
+                                </li>
+                                <li class="nav--item nav-item-menus-list">
+                                    <a class="nav-link" asp-page="/Menus" asp-route-venueid="@subnavVenueId" active-when="/Menus"  active-when-param="venueId">
+                                        <partial name="_IconMenus" />
+                                        <span>Menus</span>
+                                    </a>
+                                </li>
+                                <li class="nav--item nav-item-order-list">
+                                    <a class="nav-link" asp-page="/Orders" asp-route-venueid="@subnavVenueId" active-when="/Orders" active-when-param="venueId">
+                                        <partial name="_IconOrders" />
+                                        <span>Orders</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                </li>
+                }
+            }
+            <li class="nav--item nav-item-account-settings">
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
+                    <partial name="_IconAccountSettings" />
+                    <span>Account settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

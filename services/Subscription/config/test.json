@@ -1,0 +1,57 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/subscription",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_full_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "create_package": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "create_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_my_plan": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "fetch_package": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_packages": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "update_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            }
+        }
+    }
+}

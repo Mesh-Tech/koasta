@@ -1,0 +1,21 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "CHANGEME",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME",
+        "push_service_key": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/analytics",
+        "debug": false,
+        "api_auth_requirements": {}
+    }
+}

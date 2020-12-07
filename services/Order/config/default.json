@@ -1,0 +1,55 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5004",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": true,
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-dev",
+        "rabbitmq_hostname": "127.0.0.1",
+        "rabbitmq_username": "pubcrawladmin",
+        "rabbitmq_password": "password"
+    },
+    "meta": {
+        "path_base": "/order",
+        "requires_message_queue": true,
+        "debug": true,
+        "transaction_fee_percentage": 0.08,
+        "transaction_fee_minimum": 0.4,
+        "payment_processor_fee_percentage": 0.025,
+        "api_auth_requirements": {
+            "create_order": {
+                "user_type": "any"
+            },
+            "fetch_order_status": {
+                "user_type": "any"
+            },
+            "fetch_full_order": {
+                "user_type": "any"
+            },
+            "estimate_order": {
+                "user_type": "any"
+            },
+            "fetch_full_incomplete_orders": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_full_complete_orders": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_orders": {
+                "user_type": "user"
+            },
+            "update_order_status": {
+                "user_type": "employee",
+                "work_with_venue": true
+            }
+        }
+    }
+}

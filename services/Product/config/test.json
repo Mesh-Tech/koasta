@@ -1,0 +1,45 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/product",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_product": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "delete_product": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "fetch_product_types": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_product": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_products": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "update_product": {
+                "user_type": "employee",
+                "administer_venue": true
+            }
+        }
+    }
+}

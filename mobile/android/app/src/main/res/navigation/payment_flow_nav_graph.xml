@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/payment_flow_nav_graph.xml"
+  app:startDestination="@id/paymentFlowVenueDetailsFragment"
+  tools:ignore="UnusedNavigation">
+  <fragment
+    android:id="@+id/paymentFlowVenueDetailsFragment"
+    android:name="io.meshtech.koasta.fragment.VenueDetailFragment"
+    android:label=""
+    tools:layout="@layout/fragment_venue_detail">
+    <argument
+      android:name="venueId"
+      app:argType="integer"
+      android:defaultValue="-1"/>
+
+    <action
+      android:id="@+id/nav_venue_details_to_venue_menu"
+      app:destination="@id/paymentFlowVenueMenuFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/paymentFlowVenueMenuFragment"
+    android:name="io.meshtech.koasta.fragment.VenueMenuFragment"
+    android:label=""
+    tools:layout="@layout/fragment_venue_menu">
+    <argument
+      android:name="venueId"
+      app:argType="integer"
+      android:defaultValue="-1"/>
+
+    <action
+      android:id="@+id/nav_venue_menu_to_order_confirmation"
+      app:destination="@id/orderConfirmationFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/orderConfirmationFragment"
+    android:name="io.meshtech.koasta.fragment.OrderConfirmationFragment"
+    android:label=""
+    tools:layout="@layout/fragment_order_confirmation">
+    <argument
+      android:name="venueId"
+      app:argType="integer"
+      android:defaultValue="-1"/>
+  </fragment>
+</navigation>

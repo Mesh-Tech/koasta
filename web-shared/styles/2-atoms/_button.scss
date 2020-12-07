@@ -1,0 +1,105 @@
+.button, .button:hover, .button:active, .button:visited {
+  display: inline-block;
+  padding: 9px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  font-style: normal;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  transition-property: color, background, text-decoration;
+  color: white;
+  background: transparent;
+  border-radius: 4px;
+  user-select: none;
+  border: none;
+  -webkit-user-select: none;
+  position: relative;
+
+  @include mq($until: tablet) {
+    padding: 10px;
+  }
+}
+
+button.button {
+  margin-left: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.button:hover, .button:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.button.primary, .button.primary:visited {
+  @extend .button--solid;
+  color: $colour-accent;
+}
+
+.button.primary:hover .button.primary:active, .button.primary:focus {
+  @extend .button--solid;
+  color: $colour-accent-dark;
+}
+
+.button.secondary, .button.secondary:visited, .button.secondary:disabled:hover {
+  @extend .button--solid;
+  color: $colour-navy;
+}
+
+.button.secondary:hover, .button.secondary:active, .button.secondary:focus {
+  @extend .button--solid;
+  color: $colour-dark-navy;
+}
+
+.button.plain, .button.plain:visited {
+  @extend .button--solid;
+  border: 1px solid #C6C6C6;
+  background: white;
+  color: black;
+  font-weight: normal;
+}
+
+.button.plain:hover {
+  @extend .button--solid;
+  border-color: $colour-second-light;
+  background: $colour-second-light;
+  color: white;
+  font-weight: normal;
+}
+
+.button.plain:active, .button.plain:focus {
+  @extend .button--solid;
+  border-color: $colour-second-dark;
+  background: $colour-second-dark;
+  color: white;
+  font-weight: normal;
+}
+
+@keyframes buttonspinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.button.loading:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 70%;
+  border: 2px solid transparent;
+  border-top-color: white;
+  animation: buttonspinner 1.2s linear infinite;
+}

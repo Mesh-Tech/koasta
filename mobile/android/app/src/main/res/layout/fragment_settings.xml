@@ -1,0 +1,248 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/colorAccentLighter"
+  android:theme="@style/AppTheme"
+  tools:context="io.meshtech.koasta.fragment.SettingsFragment">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccentLighter"
+    android:orientation="vertical"
+    tools:ignore="UselessParent">
+
+    <LinearLayout
+      android:id="@+id/settings_button_sign_in"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorBackground"
+      android:orientation="vertical"
+      android:foreground="?attr/selectableItemBackground">
+
+      <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorAccentLight" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/settings_account_details"
+        android:textSize="20sp"
+        android:fontFamily="@font/manrope_medium" />
+
+      <TextView
+        android:id="@+id/settings_account_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/settings_account_details_sign_in" />
+
+      <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccentLight" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/settings_button_share"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:background="@color/colorBackground"
+      android:foreground="?attr/selectableItemBackground"
+      android:clickable="true"
+      android:focusable="true"
+      android:orientation="vertical">
+
+      <View
+        android:id="@+id/view_a"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorAccentLight"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+        android:id="@+id/view_b"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_a"
+        android:src="@drawable/icon_settings_share"/>
+
+      <TextView
+        android:id="@+id/view_c"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Invite Friends"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="@id/view_b"
+        app:layout_constraintLeft_toRightOf="@id/view_b"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_b" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/settings_button_contact"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorBackground"
+      android:foreground="?attr/selectableItemBackground"
+      android:clickable="true"
+      android:focusable="true"
+      android:orientation="vertical">
+
+      <View
+        android:id="@+id/view_e"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorAccentLight"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+        android:id="@+id/view_f"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_e"
+        android:src="@drawable/icon_settings_contact" />
+
+      <TextView
+        android:id="@+id/view_g"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Contact"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="@id/view_f"
+        app:layout_constraintLeft_toRightOf="@id/view_f"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_f" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/settings_button_legal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorBackground"
+      android:foreground="?attr/selectableItemBackground"
+      android:clickable="true"
+      android:focusable="true"
+      android:orientation="vertical">
+
+      <View
+        android:id="@+id/view_i"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorAccentLight"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+        android:id="@+id/view_j"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_i"
+        android:src="@drawable/icon_settings_legal" />
+
+      <TextView
+        android:id="@+id/view_k"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Legal"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="@id/view_j"
+        app:layout_constraintLeft_toRightOf="@id/view_j"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_j" />
+
+      <View
+        android:id="@+id/view_l"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorAccentLight"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/settings_button_sign_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp">
+
+      <View
+          android:id="@+id/view_m"
+          android:layout_width="match_parent"
+          android:layout_height="0.5dp"
+          android:background="@color/colorAccentLight" />
+
+      <TextView
+          android:id="@+id/view_n"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="10dp"
+          android:textAlignment="center"
+          android:text="Sign out"
+          app:layout_constrainedHeight="true"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintLeft_toRightOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <View
+          android:id="@+id/view_o"
+          android:layout_width="match_parent"
+          android:layout_height="0.5dp"
+          android:background="@color/colorAccentLight"
+          app:layout_constrainedHeight="true"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
+  </LinearLayout>
+
+</FrameLayout>

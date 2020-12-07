@@ -1,0 +1,2220 @@
+[
+  {
+    "className": "Company",
+    "dbTableName": "Company",
+    "resourceId": "companyId",
+    "entries": [
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "companyName",
+        "fieldName": "CompanyName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyAddress",
+        "fieldName": "CompanyAddress",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyPostcode",
+        "fieldName": "CompanyPostcode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyContact",
+        "fieldName": "CompanyContact",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "companyPhone",
+        "fieldName": "CompanyPhone",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyEmail",
+        "fieldName": "CompanyEmail",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalAccountId",
+        "fieldName": "ExternalAccountId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "externalCustomerId",
+        "fieldName": "ExternalCustomerId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "externalAccessToken",
+        "fieldName": "ExternalAccessToken",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "externalRefreshToken",
+        "fieldName": "ExternalRefreshToken",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "externalTokenExpiry",
+        "fieldName": "ExternalTokenExpiry",
+        "dataType": "DateTime",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "referenceCode",
+        "fieldName": "ReferenceCode",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "CompanyAccountInfo",
+    "dbTableName": "CompanyAccountInfo",
+    "entries": [
+      {
+        "dbFieldName": "externalAccountId",
+        "fieldName": "ExternalAccountId",
+        "dataType": "string",
+        "nullable": true,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "externalCustomerId",
+        "fieldName": "ExternalCustomerId",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Employee",
+    "dbTableName": "Employee",
+    "resourceId": "employeeId",
+    "entries": [
+      {
+        "dbFieldName": "employeeId",
+        "fieldName": "EmployeeId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "employeeName",
+        "fieldName": "EmployeeName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "username",
+        "fieldName": "Username",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "passwordHash",
+        "fieldName": "PasswordHash",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "roleId",
+        "fieldName": "RoleId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "securityStamp",
+        "fieldName": "SecurityStamp",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "confirmed",
+        "fieldName": "Confirmed",
+        "dataType": "bool",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "EmployeeRole",
+    "dbTableName": "EmployeeRole",
+    "resourceId": "roleId",
+    "entries": [
+      {
+        "dbFieldName": "roleId",
+        "fieldName": "RoleId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "roleName",
+        "fieldName": "RoleName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canWorkWithVenue",
+        "fieldName": "CanWorkWithVenue",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canAdministerVenue",
+        "fieldName": "CanAdministerVenue",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canWorkWithCompany",
+        "fieldName": "CanWorkWithCompany",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canAdministerCompany",
+        "fieldName": "CanAdministerCompany",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canAdministerSystem",
+        "fieldName": "CanAdministerSystem",
+        "dataType": "bool",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "EmployeeSession",
+    "dbTableName": "EmployeeSession",
+    "resourceId": "sessionId",
+    "entries": [
+      {
+        "dbFieldName": "sessionId",
+        "fieldName": "SessionId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "employeeId",
+        "fieldName": "EmployeeId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "authToken",
+        "fieldName": "AuthToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "refreshToken",
+        "fieldName": "RefreshToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "expiry",
+        "fieldName": "Expiry",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "refreshExpiry",
+        "fieldName": "RefreshExpiry",
+        "dataType": "DateTime",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Image",
+    "dbTableName": "Image",
+    "resourceId": "imageId",
+    "entries": [
+      {
+        "dbFieldName": "imageId",
+        "fieldName": "ImageId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "imageKey",
+        "fieldName": "ImageKey",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "imageTitle",
+        "fieldName": "ImageTitle",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Menu",
+    "dbTableName": "Menu",
+    "resourceId": "menuId",
+    "entries": [
+      {
+        "dbFieldName": "menuId",
+        "fieldName": "MenuId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuDescription",
+        "fieldName": "MenuDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "menuName",
+        "fieldName": "MenuName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuImage",
+        "fieldName": "MenuImage",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "MenuAvailability",
+    "dbTableName": "MenuAvailability",
+    "resourceId": "menuAvailabilityId",
+    "entries": [
+      {
+        "dbFieldName": "menuAvailabilityId",
+        "fieldName": "MenuAvailabilityId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "menuId",
+        "fieldName": "MenuId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "timeStart",
+        "fieldName": "TimeStart",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "timeEnd",
+        "fieldName": "TimeEnd",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "day",
+        "fieldName": "Day",
+        "dataType": "int",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "MenuItem",
+    "dbTableName": "MenuItem",
+    "resourceId": "menuItemId",
+    "entries": [
+      {
+        "dbFieldName": "menuItemId",
+        "fieldName": "MenuItemId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuId",
+        "fieldName": "MenuId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productId",
+        "fieldName": "ProductId",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Order",
+    "dbTableName": "CustomerOrder",
+    "resourceId": "orderId",
+    "entries": [
+      {
+        "dbFieldName": "orderId",
+        "fieldName": "OrderId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "orderNumber",
+        "fieldName": "OrderNumber",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "orderStatus",
+        "fieldName": "OrderStatus",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "employeeId",
+        "fieldName": "EmployeeId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "orderTimeStamp",
+        "fieldName": "OrderTimeStamp",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPaymentId",
+        "fieldName": "ExternalPaymentId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "lineItems",
+        "fieldName": "LineItems",
+        "dataType": "List<OrderLine>",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "total",
+        "fieldName": "Total",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "serviceCharge",
+        "fieldName": "ServiceCharge",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "nonce",
+        "fieldName": "Nonce",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "orderNotes",
+        "fieldName": "OrderNotes",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "servingType",
+        "fieldName": "ServingType",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "tableName",
+        "fieldName": "Table",
+        "dataType": "string",
+        "nullable": true
+      }	  
+    ],
+    "isDto": false
+  },
+  {
+    "className": "OrderLine",
+    "dbTableName": "OrderLine",
+    "resourceId": "orderLineId",
+    "entries": [
+      {
+        "dbFieldName": "orderLineId",
+        "fieldName": "OrderLineId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "orderId",
+        "fieldName": "OrderId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productId",
+        "fieldName": "ProductId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "quantity",
+        "fieldName": "Quantity",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "amount",
+        "fieldName": "Amount",
+        "dataType": "decimal",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Product",
+    "dbTableName": "Product",
+    "resourceId": "productId",
+    "entries": [
+      {
+        "dbFieldName": "productId",
+        "fieldName": "ProductId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "productTypeId",
+        "fieldName": "ProductType",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productName",
+        "fieldName": "ProductName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productDescription",
+        "fieldName": "ProductDescription",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "price",
+        "fieldName": "Price",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "image",
+        "fieldName": "Image",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "ageRestricted",
+        "fieldName": "AgeRestricted",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "parentProductId",
+        "fieldName": "ParentProductId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "ProductType",
+    "dbTableName": "ProductType",
+    "resourceId": "productTypeId",
+    "entries": [
+      {
+        "dbFieldName": "productTypeId",
+        "fieldName": "ProductTypeId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "productTypeName",
+        "fieldName": "ProductTypeName",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Review",
+    "dbTableName": "Review",
+    "resourceId": "reviewId",
+    "entries": [
+      {
+        "dbFieldName": "reviewId",
+        "fieldName": "ReviewId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "reviewSummary",
+        "fieldName": "ReviewSummary",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "reviewDetail",
+        "fieldName": "ReviewDetail",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "rating",
+        "fieldName": "Rating",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "registeredInterest",
+        "fieldName": "RegisteredInterest",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "approved",
+        "fieldName": "Approved",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "created",
+        "fieldName": "Created",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "updated",
+        "fieldName": "Updated",
+        "dataType": "DateTime",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "SubscriptionPackage",
+    "dbTableName": "SubscriptionPackage",
+    "resourceId": "packageId",
+    "entries": [
+      {
+        "dbFieldName": "packageId",
+        "fieldName": "PackageId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "packageName",
+        "fieldName": "PackageName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPackageId",
+        "fieldName": "ExternalPackageId",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "SubscriptionPlan",
+    "dbTableName": "SubscriptionPlan",
+    "resourceId": "planId",
+    "entries": [
+      {
+        "dbFieldName": "planId",
+        "fieldName": "PlanId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPlanId",
+        "fieldName": "ExternalPlanId",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Tag",
+    "dbTableName": "Tag",
+    "resourceId": "tagId",
+    "entries": [
+      {
+        "dbFieldName": "tagId",
+        "fieldName": "TagId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "tagName",
+        "fieldName": "TagName",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "User",
+    "dbTableName": "User",
+    "resourceId": "userId",
+    "entries": [
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "registrationId",
+        "fieldName": "RegistrationId",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "firstName",
+        "fieldName": "FirstName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "lastName",
+        "fieldName": "LastName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "email",
+        "fieldName": "Email",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "dob",
+        "fieldName": "Dob",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "isVerified",
+        "fieldName": "IsVerified",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "wantAdvertising",
+        "fieldName": "WantAdvertising",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPaymentProcessorId",
+        "fieldName": "ExternalPaymentProcessorId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "appleUserIdentifier",
+        "fieldName": "AppleUserIdentifier",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "facebookUserIdentifier",
+        "fieldName": "FacebookUserIdentifier",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "googleUserIdentifier",
+        "fieldName": "GoogleUserIdentifier",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "UserSession",
+    "dbTableName": "UserSession",
+    "resourceId": "sessionId",
+    "entries": [
+      {
+        "dbFieldName": "sessionId",
+        "fieldName": "SessionId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "authToken",
+        "fieldName": "AuthToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "type",
+        "fieldName": "TokenType",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "authTokenExpiry",
+        "fieldName": "AuthTokenExpiry",
+        "dataType": "DateTime",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Venue",
+    "dbTableName": "Venue",
+    "resourceId": "venueId",
+    "entries": [
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueCode",
+        "fieldName": "VenueCode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueName",
+        "fieldName": "VenueName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueAddress",
+        "fieldName": "VenueAddress",
+        "dataType": "string",
+        "nullable": false
+      },
+	  {
+        "dbFieldName": "venueAddress2",
+        "fieldName": "VenueAddress2",
+        "dataType": "string",
+        "nullable": true
+      },
+	  {
+        "dbFieldName": "venueAddress3",
+        "fieldName": "VenueAddress3",
+        "dataType": "string",
+        "nullable": true
+      },
+	  {
+        "dbFieldName": "venueCounty",
+        "fieldName": "VenueCounty",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venuePostCode",
+        "fieldName": "VenuePostCode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venuePhone",
+        "fieldName": "VenuePhone",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueContact",
+        "fieldName": "VenueContact",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueDescription",
+        "fieldName": "VenueDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueNotes",
+        "fieldName": "VenueNotes",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "imageId",
+        "fieldName": "ImageId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueLatitude",
+        "fieldName": "VenueLatitude",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueLongitude",
+        "fieldName": "VenueLongitude",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "fieldName": "Tags",
+        "dataType": "List<String>",
+        "nullable": false
+      },
+      {
+        "fieldName": "ImageUrl",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "fieldName": "IsOpen",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalLocationId",
+        "fieldName": "ExternalLocationId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "verificationStatus",
+        "fieldName": "VerificationStatus",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "referenceCode",
+        "fieldName": "ReferenceCode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueProgress",
+        "fieldName": "Progress",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "servingType",
+        "fieldName": "ServingType",
+        "dataType": "int",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "FullEmployee",
+    "dbTableName": "FullEmployee",
+    "entries": [
+      {
+        "dbFieldName": "employeeId",
+        "fieldName": "EmployeeId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "employeeName",
+        "fieldName": "EmployeeName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "username",
+        "fieldName": "Username",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "passwordHash",
+        "fieldName": "PasswordHash",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "roleId",
+        "fieldName": "RoleId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canWorkWithVenue",
+        "fieldName": "CanWorkWithVenue",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canAdministerVenue",
+        "fieldName": "CanAdministerVenue",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canWorkWithCompany",
+        "fieldName": "CanWorkWithCompany",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canAdministerCompany",
+        "fieldName": "CanAdministerCompany",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "canAdministerSystem",
+        "fieldName": "CanAdministerSystem",
+        "dataType": "bool",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "FullMenu",
+    "dbTableName": "FullMenu",
+    "entries": [
+      {
+        "dbFieldName": "menuId",
+        "fieldName": "MenuId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuDescription",
+        "fieldName": "MenuDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "menuName",
+        "fieldName": "MenuName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuImage",
+        "fieldName": "MenuImage",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "products",
+        "fieldName": "Products",
+        "dataType": "List<FullMenuItem>",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "FullMenuItem",
+    "dbTableName": "FullMenuItem",
+    "entries": [
+      {
+        "dbFieldName": "productId",
+        "fieldName": "ProductId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productType",
+        "fieldName": "ProductType",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productName",
+        "fieldName": "ProductName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productDescription",
+        "fieldName": "ProductDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "price",
+        "fieldName": "Price",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "image",
+        "fieldName": "Image",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "ageRestricted",
+        "fieldName": "AgeRestricted",
+        "dataType": "bool",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "FullOrder",
+    "dbTableName": "FullOrder",
+    "entries": [
+      {
+        "dbFieldName": "orderId",
+        "fieldName": "OrderId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "orderNumber",
+        "fieldName": "OrderNumber",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "firstName",
+        "fieldName": "FirstName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "lastName",
+        "fieldName": "LastName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueName",
+        "fieldName": "VenueName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "orderTimeStamp",
+        "fieldName": "OrderTimeStamp",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "orderStatus",
+        "fieldName": "OrderStatus",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPaymentId",
+        "fieldName": "ExternalPaymentId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "lineItems",
+        "fieldName": "LineItems",
+        "dataType": "List<FullOrderItem>",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "total",
+        "fieldName": "Total",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "serviceCharge",
+        "fieldName": "ServiceCharge",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "orderNotes",
+        "fieldName": "OrderNotes",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "servingType",
+        "fieldName": "ServingType",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "tableName",
+        "fieldName": "Table",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "FullOrderItem",
+    "dbTableName": "FullOrderItem",
+    "entries": [
+      {
+        "dbFieldName": "orderLineId",
+        "fieldName": "Id",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productName",
+        "fieldName": "ProductName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "quantity",
+        "fieldName": "Quantity",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "amount",
+        "fieldName": "Amount",
+        "dataType": "decimal",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "FullSubscriptionPackage",
+    "dbTableName": "FullSubscriptionPackage",
+    "entries": [
+      {
+        "dbFieldName": "packageId",
+        "fieldName": "PackageId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "packageName",
+        "fieldName": "PackageName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPackageId",
+        "fieldName": "ExternalPackageId",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "FullSubscriptionPlan",
+    "dbTableName": "FullSubscriptionPlan",
+    "entries": [
+      {
+        "dbFieldName": "planId",
+        "fieldName": "PlanId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPlanId",
+        "fieldName": "ExternalPlanId",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "packages",
+        "fieldName": "Packages",
+        "dataType": "List<FullSubscriptionPackage>",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewCompany",
+    "dbTableName": "NewCompany",
+    "entries": [
+      {
+        "dbFieldName": "companyName",
+        "fieldName": "CompanyName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyAddress",
+        "fieldName": "CompanyAddress",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyPostcode",
+        "fieldName": "CompanyPostcode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyContact",
+        "fieldName": "CompanyContact",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyPhone",
+        "fieldName": "CompanyPhone",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyEmail",
+        "fieldName": "CompanyEmail",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewEmployee",
+    "dbTableName": "NewEmployee",
+    "entries": [
+      {
+        "dbFieldName": "employeeName",
+        "fieldName": "EmployeeName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "roleId",
+        "fieldName": "RoleId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "username",
+        "fieldName": "Username",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "passwordHash",
+        "fieldName": "PasswordHash",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewEmployeeSession",
+    "dbTableName": "NewEmployeeSession",
+    "entries": [
+      {
+        "dbFieldName": "employeeId",
+        "fieldName": "EmployeeId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "authToken",
+        "fieldName": "AuthToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "refreshToken",
+        "fieldName": "RefreshToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "expiry",
+        "fieldName": "Expiry",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "refreshExpiry",
+        "fieldName": "RefreshExpiry",
+        "dataType": "DateTime",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewMenu",
+    "dbTableName": "NewMenu",
+    "entries": [
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuName",
+        "fieldName": "MenuName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "menuDescription",
+        "fieldName": "MenuDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "menuImage",
+        "fieldName": "MenuImage",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "products",
+        "fieldName": "Products",
+        "dataType": "List<int>",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewOrder",
+    "dbTableName": "NewOrder",
+    "entries": [
+      {
+        "dbFieldName": "orderNumber",
+        "fieldName": "OrderNumber",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "lineItems",
+        "fieldName": "LineItems",
+        "dataType": "List<NewOrderItem>",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "total",
+        "fieldName": "Total",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "serviceCharge",
+        "fieldName": "ServiceCharge",
+        "dataType": "decimal",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewOrderItem",
+    "dbTableName": "NewOrderItem",
+    "entries": [
+      {
+        "dbFieldName": "productId",
+        "fieldName": "ProductId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "quantity",
+        "fieldName": "Quantity",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "amount",
+        "fieldName": "Amount",
+        "dataType": "decimal",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewProduct",
+    "dbTableName": "NewProduct",
+    "entries": [
+      {
+        "dbFieldName": "productTypeId",
+        "fieldName": "ProductTypeId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productName",
+        "fieldName": "ProductName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productDescription",
+        "fieldName": "ProductDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "price",
+        "fieldName": "Price",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "image",
+        "fieldName": "Image",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "ageRestricted",
+        "fieldName": "AgeRestricted",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "parentProductId",
+        "fieldName": "ParentProductId",
+        "dataType": "int",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewSubscriptionPackage",
+    "dbTableName": "NewSubscriptionPackage",
+    "entries": [
+      {
+        "dbFieldName": "packageName",
+        "fieldName": "PackageName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPackageId",
+        "fieldName": "ExternalPackageId",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewSubscriptionPlan",
+    "dbTableName": "NewSubscriptionPlan",
+    "entries": [
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "externalPlanId",
+        "fieldName": "ExternalPlanId",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewSubscriptionPlanEntry",
+    "dbTableName": "NewSubscriptionPlanEntry",
+    "entries": [
+      {
+        "dbFieldName": "packageId",
+        "fieldName": "PackageId",
+        "dataType": "int",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewUser",
+    "dbTableName": "NewUser",
+    "entries": [
+      {
+        "dbFieldName": "firstName",
+        "fieldName": "FirstName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "lastName",
+        "fieldName": "LastName",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "email",
+        "fieldName": "Email",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "dob",
+        "fieldName": "Dob",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "isVerified",
+        "fieldName": "IsVerified",
+        "dataType": "bool",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "wantAdvertising",
+        "fieldName": "WantAdvertising",
+        "dataType": "bool",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "registrationId",
+        "fieldName": "RegistrationId",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewUserSession",
+    "dbTableName": "NewUserSession",
+    "entries": [
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "authToken",
+        "fieldName": "AuthToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "refreshToken",
+        "fieldName": "RefreshToken",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "authTokenExpiry",
+        "fieldName": "AuthTokenExpiry",
+        "dataType": "DateTime",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "refreshTokenExpiry",
+        "fieldName": "RefreshTokenExpiry",
+        "dataType": "DateTime",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "NewVenue",
+    "dbTableName": "NewVenue",
+    "entries": [
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueName",
+        "fieldName": "VenueName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueCode",
+        "fieldName": "VenueCode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueAddress",
+        "fieldName": "VenueAddress",
+        "dataType": "string",
+        "nullable": false
+      },
+	        {
+        "dbFieldName": "venueAddress2",
+        "fieldName": "VenueAddress2",
+        "dataType": "string",
+        "nullable": true
+      },
+	        {
+        "dbFieldName": "venueAddress3",
+        "fieldName": "VenueAddress3",
+        "dataType": "string",
+        "nullable": true
+      },
+	  {
+        "dbFieldName": "venueCounty",
+        "fieldName": "VenueCounty",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venuePostCode",
+        "fieldName": "VenuePostCode",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "venueContact",
+        "fieldName": "VenueContact",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueDescription",
+        "fieldName": "VenueDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueNotes",
+        "fieldName": "VenueNotes",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueLatitude",
+        "fieldName": "VenueLatitude",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venueLongitude",
+        "fieldName": "VenueLongitude",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "imageId",
+        "fieldName": "ImageId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "venuePhone",
+        "fieldName": "VenuePhone",
+        "dataType": "string",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "UpdatedProduct",
+    "dbTableName": "UpdatedProduct",
+    "entries": [
+      {
+        "dbFieldName": "productId",
+        "fieldName": "ProductId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productTypeId",
+        "fieldName": "ProductTypeId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productName",
+        "fieldName": "ProductName",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "productDescription",
+        "fieldName": "ProductDescription",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "price",
+        "fieldName": "Price",
+        "dataType": "decimal",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "image",
+        "fieldName": "Image",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "ageRestricted",
+        "fieldName": "AgeRestricted",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "parentProductId",
+        "fieldName": "ParentProductId",
+        "dataType": "int",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "UpdatedReview",
+    "dbTableName": "UpdatedReview",
+    "entries": [
+      {
+        "dbFieldName": "reviewSummary",
+        "fieldName": "ReviewSummary",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "reviewDetail",
+        "fieldName": "ReviewDetail",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "rating",
+        "fieldName": "Rating",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "registeredInterest",
+        "fieldName": "RegisteredInterest",
+        "dataType": "bool",
+        "nullable": true
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "UpdatedReviewAdmin",
+    "dbTableName": "UpdatedReviewAdmin",
+    "entries": [
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "reviewSummary",
+        "fieldName": "ReviewSummary",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "reviewDetail",
+        "fieldName": "ReviewDetail",
+        "dataType": "string",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "rating",
+        "fieldName": "Rating",
+        "dataType": "int",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "registeredInterest",
+        "fieldName": "RegisteredInterest",
+        "dataType": "bool",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "approved",
+        "fieldName": "Approved",
+        "dataType": "bool",
+        "nullable": false
+      }
+    ],
+    "isDto": true
+  },
+  {
+    "className": "Device",
+    "dbTableName": "UserDevice",
+    "resourceId": "deviceId",
+    "entries": [
+      {
+        "dbFieldName": "deviceId",
+        "fieldName": "DeviceId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "userId",
+        "fieldName": "UserId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "deviceToken",
+        "fieldName": "Token",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "platform",
+        "fieldName": "Platform",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "updated",
+        "fieldName": "UpdateTimestamp",
+        "dataType": "DateTime",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "Document",
+    "dbTableName": "Document",
+    "resourceId": "documentId",
+    "entries": [
+      {
+        "dbFieldName": "documentId",
+        "fieldName": "DocumentId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "companyId",
+        "fieldName": "CompanyId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "documentKey",
+        "fieldName": "DocumentKey",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "documentTitle",
+        "fieldName": "DocumentTitle",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "documentDescription",
+        "fieldName": "DocumentDescription",
+        "dataType": "string",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "FeatureFlag",
+    "dbTableName": "FeatureFlag",
+    "resourceId": "flagId",
+    "entries": [
+      {
+        "dbFieldName": "flagId",
+        "fieldName": "FlagId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "name",
+        "fieldName": "Name",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "description",
+        "fieldName": "Description",
+        "dataType": "string",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "value",
+        "fieldName": "Value",
+        "dataType": "bool",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "VenueDocument",
+    "dbTableName": "VenueDocuments",
+    "resourceId": "venueId",
+    "entries": [
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "documentId",
+        "fieldName": "DocumentId",
+        "dataType": "int",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  },
+  {
+    "className": "VenueOpeningTime",
+    "dbTableName": "VenueOpeningTime",
+    "resourceId": "venueOpeningTimeId",
+    "entries": [
+      {
+        "dbFieldName": "venueOpeningTimeId",
+        "fieldName": "VenueOpeningTimeId",
+        "dataType": "int",
+        "nullable": false,
+        "idColumn": true
+      },
+      {
+        "dbFieldName": "venueId",
+        "fieldName": "VenueId",
+        "dataType": "int",
+        "nullable": false
+      },
+      {
+        "dbFieldName": "startTime",
+        "fieldName": "StartTime",
+        "dataType": "TimeSpan",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "endTime",
+        "fieldName": "EndTime",
+        "dataType": "TimeSpan",
+        "nullable": true
+      },
+      {
+        "dbFieldName": "dayOfWeek",
+        "fieldName": "DayOfWeek",
+        "dataType": "int",
+        "nullable": false
+      }
+    ],
+    "isDto": false
+  }
+]

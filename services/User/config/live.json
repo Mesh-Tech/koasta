@@ -1,0 +1,35 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "CHANGEME",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/user",
+        "debug": false,
+        "api_auth_requirements": {
+            "admin_fetch_devices": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "admin_delete_device": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "create_device": {
+                "user_type": "user"
+            },
+            "fetch_own_user": {
+                "user_type": "user"
+            }
+        }
+    }
+}

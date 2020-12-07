@@ -1,0 +1,40 @@
+$mq-breakpoints: (
+  mobile:                 320px,
+  tablet:                 768px,
+  desktop:                1024px,
+  wide:                   1440px
+);
+
+$colour-accent:         #f12c5c;
+$colour-accent-light:   lighten(#f12c5c, 5%);
+$colour-accent-dark:    darken(#f12c5c, 10%);
+$colour-accent-bright:  #f12c5c;
+$colour-second:         #00BEEC;
+$colour-second-light:   lighten(#00BEEC, 5%);
+$colour-second-dark:    darken(#00BEEC, 5%);
+$colour-second-bright:  #00BEEC;
+$colour-good:           #33D05E;
+$colour-iffy:           #EA9719;
+$colour-bad:            #EA9719;
+$colour-light-grey:     #ECECEC;
+$colour-lightish-grey:     #CCCCCC;
+$colour-faded-grey:     #8D8D8D;
+$colour-medium-grey:    #5E5E5E;
+$colour-dark-grey:      #3E3E3E;
+$colour-darker-grey:    #2f2f2f;
+$colour-navy: #1C2237;
+$colour-dark-navy: darken($colour-navy, 10%);
+$colour-light-navy: lighten($colour-navy, 10%);
+$colour-lighter-navy: lighten($colour-navy, 30%);
+
+$colour-faded-grey-2: rgb(186, 188, 194);
+$colour-faded-grey-3: rgb(233, 236, 239);
+$colour-faded-grey-4: rgb(142, 142, 142);
+
+// Meta variables
+
+$colour-nav-background: $colour-navy;
+$colour-nav-item-inactive: $colour-faded-grey-2;
+$colour-dash-background: $colour-faded-grey-3;
+$colour-column-heading: $colour-faded-grey-4;
+$colour-login-background: $colour-navy;

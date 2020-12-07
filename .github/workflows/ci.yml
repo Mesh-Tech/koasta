@@ -1,0 +1,29 @@
+name: Deploy API services
+
+env:
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  GKE_CLUSTER: koasta
+  GKE_ZONE: eu-west2
+  GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
+
+      - name: Install dependencies
+        run: dotnet restore
+        working-directory: services
+
+      - name: Run tests
+        run: dotnet test
+        working-directory: services
+
+      - name: Build all
+        run: dotnet build --configuration Release
+        working-directory: services

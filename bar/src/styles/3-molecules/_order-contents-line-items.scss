@@ -1,0 +1,26 @@
+.order-contents--line-items {
+    flex: 1;
+    margin: 10px;
+    padding: 0;
+    margin-right: 0;
+    background: white;
+    border-radius: 4px;
+    list-style: none;
+}
+
+.order-contents--line-item {
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid $colour-light-grey;
+    display: flex;
+
+    .order-contents--line-item-title {
+        flex: 1;
+    }
+
+    .order-contents--line-item-price {
+        flex: 0;
+        flex-shrink: 0;
+        font-weight: bold;
+    }
+}

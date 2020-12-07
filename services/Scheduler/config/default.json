@@ -1,0 +1,22 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5013",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": true,
+        "rabbitmq_hostname": "127.0.0.1",
+        "rabbitmq_username": "pubcrawladmin",
+        "rabbitmq_password": "password"
+    },
+    "meta": {
+        "path_base": "/scheduler",
+        "debug": true,
+        "api_auth_requirements": {}
+    }
+}

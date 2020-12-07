@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/authentication_root"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".activity.AuthenticationActivity"
+  android:windowSoftInputMode="stateAlwaysVisible">
+
+  <com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:elevation="0dp">
+
+    <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize" />
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/authentication_content_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:theme="@style/AppTheme"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+        android:id="@+id/authentication_input_number_wizard_title"
+        style="@style/AppTheme.WizardTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/authentication_input_number_wizard_title" />
+
+    <TextView
+        android:id="@+id/authentication_input_number_wizard_body"
+        style="@style/AppTheme.WizardBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authentication_input_number_wizard_title"
+        android:text="@string/authentication_input_number_wizard_body" />
+
+    <TextView
+        android:id="@+id/verify_phone_input_verification_wizard_legal"
+        style="@style/AppTheme.WizardLegal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/auth_buttons"
+        android:textAlignment="center"
+        android:text="@string/authentication_input_verification_wizard_legal" />
+
+    <LinearLayout
+        android:id="@+id/auth_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constrainedHeight="true"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp">
+
+      <com.google.android.gms.common.SignInButton
+          android:id="@+id/authentication_google_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp" />
+
+      <com.facebook.login.widget.LoginButton
+          android:id="@+id/authentication_facebook_button"
+          android:layout_gravity="center_horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="24dp"
+          android:layout_marginRight="24dp"
+          android:layout_marginTop="20dp"
+          android:paddingTop="14dp"
+          android:paddingBottom="14dp"
+          android:theme="@style/AppTheme" />
+
+    </LinearLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/authentication_progress_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+      android:alpha="0">
+    <ProgressBar
+        android:id="@+id/loading_spinner"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:theme="@style/StandardProgressBarTheme"
+        android:indeterminateTintMode="src_atop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

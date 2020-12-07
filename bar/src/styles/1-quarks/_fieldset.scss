@@ -1,0 +1,19 @@
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+fieldset.aligned {
+    label {
+        width: 100px;
+        display: block;
+        margin-bottom: 10px;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    input {
+        display: block;
+    }
+}

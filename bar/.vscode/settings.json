@@ -1,0 +1,8 @@
+{
+    "standard.autoFixOnSave": true,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true
+    }
+}

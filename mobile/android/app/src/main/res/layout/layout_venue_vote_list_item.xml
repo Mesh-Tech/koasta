@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme"
+    android:paddingTop="30dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_venues_vote_title"
+        android:textSize="20sp"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_venues_vote_description"
+        android:textSize="16sp"
+        android:fontFamily="@font/manrope_medium"
+        android:textColor="@color/colorAccent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <io.meshtech.koasta.view.VenueVoteItemView
+                android:id="@+id/vote_item_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <io.meshtech.koasta.view.VenueVoteItemView
+                android:id="@+id/vote_item_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <io.meshtech.koasta.view.VenueVoteItemView
+                android:id="@+id/vote_item_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <io.meshtech.koasta.view.VenueVoteItemView
+                android:id="@+id/vote_item_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <io.meshtech.koasta.view.VenueVoteItemView
+                android:id="@+id/vote_item_e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

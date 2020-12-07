@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  app:layout_constrainedHeight="true"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:foreground="?android:attr/selectableItemBackground"
+  android:clickable="true"
+  android:focusable="true"
+  android:paddingBottom="12dp"
+  android:theme="@style/AppTheme">
+
+  <ImageView
+    android:id="@+id/venue_item_thumb"
+    android:layout_width="match_parent"
+    android:layout_height="168dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    app:layout_constrainedHeight="true"
+    android:background="@drawable/placeholder"
+    tools:backgroundTint="@color/colorBluePlaceholder"
+    android:scaleType="centerCrop"
+    android:outlineProvider="background"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    tools:ignore="ContentDescription"/>
+
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@android:color/transparent"
+      android:layout_marginBottom="10dp"
+      app:layout_constraintBottom_toBottomOf="@id/venue_item_thumb"
+      app:layout_constraintRight_toRightOf="@id/venue_item_thumb">
+    <ImageView
+        android:id="@+id/venue_item_placeholder_a"
+        android:layout_marginEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_gravity="bottom"
+        tools:src="@drawable/icon_placeholder_red_wine"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/venue_item_placeholder_b"
+        android:layout_marginEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_gravity="bottom"
+        tools:src="@drawable/icon_placeholder_beer_mug"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/venue_item_placeholder_c"
+        android:layout_marginEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_gravity="bottom"
+        tools:src="@drawable/icon_placeholder_mystery"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/venue_item_placeholder_d"
+        android:layout_marginEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_gravity="bottom"
+        tools:src="@drawable/icon_placeholder_german_beer"
+        tools:ignore="ContentDescription" />
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/venue_item_title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:textSize="17sp"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintTop_toBottomOf="@id/venue_item_thumb"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    tools:text="The Miller" />
+
+  <ImageView
+    android:id="@+id/venue_item_pin"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constrainedHeight="true"
+    android:src="@drawable/nearby_pin"
+    app:tint="@color/colorForeground"
+    app:tintMode="src_atop"
+    app:layout_constraintTop_toBottomOf="@id/venue_item_title"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="16dp"
+    tools:ignore="ContentDescription" />
+
+  <TextView
+    android:id="@+id/venue_item_subtitle"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:fontFamily="@font/manrope_medium"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintTop_toBottomOf="@id/venue_item_title"
+    app:layout_constraintLeft_toLeftOf="@id/venue_item_pin"
+    android:layout_marginTop="2dp"
+    android:layout_marginStart="16dp"
+    tools:text="Southwark" />
+
+  <TextView
+    android:id="@+id/venue_item_comment"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:lines="1"
+    android:textSize="14sp"
+    android:fontFamily="@font/manrope_medium"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintTop_toBottomOf="@id/venue_item_subtitle"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:visibility="gone"
+    tools:text="Some text goes here"
+    tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

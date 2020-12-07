@@ -1,0 +1,106 @@
+.data-table {
+    width: 100%;
+
+    th:first-of-type {
+        border-top-left-radius: 3px;
+        border-left: 2px solid $colour-dark-grey;
+    }
+
+    th:last-of-type {
+        border-top-right-radius: 3px;
+    }
+
+    tr {
+        margin: 0;
+        padding: 0;
+    }
+
+    th {
+        border: 2px solid $colour-dark-grey;
+        background: $colour-dark-grey;
+        border-left: none;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 0;
+        color: white;
+        text-align: left;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    td:first-of-type {
+        border-left: 2px solid $colour-dark-grey;
+    }
+
+    td {
+        border: 2px solid $colour-dark-grey;
+        border-left: none;
+        border-bottom: none;
+        border-right: none;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 0;
+    }
+
+    tr td:last-of-type {
+        border-right: 2px solid $colour-dark-grey;
+    }
+
+    tr:last-of-type td {
+        border-bottom: 2px solid $colour-dark-grey;
+    }
+
+    .interactive, tr.interactive, td.interactive, th.interactive, tr.interactive td {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    th.interactive:hover, th.interactive:focus {
+        background: black;
+        border-color: black;
+    }
+
+    td.interactive:hover, td.interactive:focus {
+        background: $colour-light-grey;
+    }
+
+    tr.interactive:hover td, tr.interactive:focus td {
+        background: $colour-light-grey;
+    }
+
+    td.interactive {
+        text-align: center;
+    }
+
+    td.icon-link {
+        width: 36px;
+    }
+
+    td .icon {
+        display: inline-block;
+    }
+
+    tr.interactive td.interactive:hover, tr.interactive td.interactive:focus {
+        background: $colour-accent;
+        color: white;
+    }
+
+    tr.interactive td.interactive.destructive:hover, tr.interactive td.interactive.destructive:focus {
+        background: $colour-bad;
+        color: white;
+    }
+
+    tr:last-child td:first-child {
+        border-bottom-left-radius: 3px;
+    }
+    
+    tr:last-child td:last-child {
+        border-bottom-right-radius: 3px;
+    }
+}

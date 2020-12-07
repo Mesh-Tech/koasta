@@ -1,0 +1,33 @@
+a.external-link, a.external-link:hover, a.external-link:active, a.external-link:visited, a.external-link:focus {
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-left: 25px;
+}
+
+a.external-link, a.external-link:active, a.external-link:visited {
+    color: $colour-navy;
+}
+
+a.external-link:hover, a.external-link:focus {
+    color: $colour-lighter-navy;
+}
+
+a::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    content: '';
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+a.external-link::before, a.external-link:active::before, a.external-link:visited::before {
+    background-image: url('../images/icon-external-link-navy.svg');
+}
+
+a.external-link:hover::before, a.external-link:focus::before {
+    background-image: url('../images/icon-external-link-navy-active.svg');
+}

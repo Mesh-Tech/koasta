@@ -1,0 +1,10 @@
+.orders {
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    @extend .noselect;
+}

@@ -1,0 +1,110 @@
+@page "{venueId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model VenueModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Venue.VenueName</span></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            @if(Model.Role.CanAdministerVenue)
+            {
+                <a class="btn btn-sm btn-outline-secondary mr-2" asp-page="/EditVenue" asp-route-venueid="@Model.Venue.VenueId">
+                    <partial name="_IconEdit" />
+                    <span class="ml-1 align-middle">Edit</span>
+                </a>
+            }
+            <div class="btn-group dropleft" role="group">
+                <button id="manageDrop" type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Manage
+                </button>
+                <div class="dropdown-menu" aria-labelledby="manageDrop">
+                    @if(Model.Role.CanAdministerSystem)
+                    {
+                        @if(Model.Venue.VerificationStatus != 1)
+                        {
+                            <form class="action-form" method="POST">
+                                <input type="hidden" name="action" value="approve" /> 
+                                <button type="submit" class="dropdown-item">
+                                    <partial name="_IconApprove" />
+                                    <span class="ml-1 align-middle">Approve</span>
+                                </button>
+                            </form>
+                        }
+                        @if(Model.Venue.VerificationStatus != 2)
+                        {
+                            <form class="action-form" method="POST">
+                                <input type="hidden" name="action" value="reject" /> 
+                                <button type="submit" class="dropdown-item">
+                                    <partial name="_IconReject" />
+                                    <span class="ml-1 align-middle">Reject</span>
+                                </button>
+                            </form>
+                        }
+                    }
+                    @if(Model.Role.CanAdministerCompany)
+                    {
+                        <form class="action-form" method="POST">
+                            <input type="hidden" name="action" value="delete" /> 
+                            <button type="submit" class="dropdown-item">
+                                <partial name="_IconDelete" />
+                                <span class="ml-1 align-middle">Delete</span>
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Address details
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@(string.IsNullOrWhiteSpace(Model.Venue.VenueAddress) ? "-" : Model.Venue.VenueAddress)</li>
+                <li class="list-group-item">@(string.IsNullOrWhiteSpace(Model.Venue.VenueAddress2) ? "-" : Model.Venue.VenueAddress2)</li>
+                <li class="list-group-item">@(string.IsNullOrWhiteSpace(Model.Venue.VenueAddress3) ? "-" : Model.Venue.VenueAddress3)</li>
+                <li class="list-group-item">@(string.IsNullOrWhiteSpace(Model.Venue.VenueCounty) ? "-" : Model.Venue.VenueCounty)</li>
+                <li class="list-group-item">@(string.IsNullOrWhiteSpace(Model.Venue.VenuePostCode) ? "-" : Model.Venue.VenuePostCode)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Contact details
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong class="w-100 w-md-25 w-lg-25 w-xl-25 d-block d-md-inline-block d-lg-inline-block d-xl-inline-block">Person of contact</strong>
+                    @(string.IsNullOrWhiteSpace(Model.Venue.VenueContact) ? "-" : Model.Venue.VenueContact)
+                </li>
+                <li class="list-group-item">
+                    <strong class="w-100 w-md-25 w-lg-25 w-xl-25 d-block d-md-inline-block d-lg-inline-block d-xl-inline-block">Phone number</strong>
+                    @(string.IsNullOrWhiteSpace(Model.Venue.VenuePhone) ? "-" : Model.Venue.VenuePhone)
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    @if(Model.Role.CanAdministerVenue || Model.Role.CanWorkWithCompany || Model.Role.CanAdministerCompany)
+    {
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Venue Reference</h5>
+                <p class="card-text">When speaking with our support team, you'll need to quote the following venue reference so we know we're speaking to someone authorised to manage this venue's details.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@(Model.Venue.ReferenceCode ?? "-")</li>
+            </ul>
+        </div>
+    </div>
+    }
+</section>

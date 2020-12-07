@@ -1,0 +1,46 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/auth",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_ephemeral_key": {
+                "user_type": "user"
+            },
+            "createToken": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "updateToken": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "deleteToken": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "refresh": {
+                "user_type": "employee",
+                "work_with_venue": true
+            }
+        }
+    },
+    "auth": {
+        "hash_cost": 10,
+        "auth_token_validity_minutes": 5,
+        "refresh_token_validity_minutes": 30,
+        "facebook_auth_verify_url": "https://graph.facebook.com/me/?fields=name,email&access_token={0}"
+    }
+}

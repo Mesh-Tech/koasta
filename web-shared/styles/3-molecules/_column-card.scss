@@ -1,0 +1,129 @@
+.column-card {
+    display: flex;
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+
+    .column-card__title-bar {
+        position: absolute;
+        padding: 18px;
+        top: 0;
+        left: 2px;
+        right: 0;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: $colour-column-heading;
+        font-weight: 500;
+        height: 56px;
+
+        @include mq($until: tablet) {
+            font-size: 1rem;
+            padding-left: 10px;
+        }
+    }
+
+    .column-card__column {
+        margin-right: 20px;
+    }
+    
+    .column-card__column:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.column-card.with-title {
+    padding-top: 60px;
+}
+
+@include mq($from: desktop) {
+    .column-card__column {
+        flex: 1;
+    }
+}
+
+@include mq($until: tablet) {
+    .column-card {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .column-card__column {
+        width: 100%;
+    }
+
+    .column-card__column:nth-child(odd) {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .column-card__column:nth-child(even) {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .column-card__column:first-of-type {
+        margin: 0;
+    }
+
+    .column-card.with-title {
+        padding-top: 46px;
+    }
+}
+
+@include mq($from: tablet, $until: desktop) {
+    .column-card {
+        flex-wrap: wrap;
+    }
+
+    .column-card__column {
+        width: calc(50% - 10px);
+    }
+
+    .column-card__column:nth-child(odd) {
+        margin-right: 10px;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .column-card__column:nth-child(even) {
+        margin-right: 0;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .column-card__column:nth-child(1), .column-card__column:nth-child(2) {
+        margin-top: 0;
+    }
+}
+
+.column-card__column-title {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $colour-column-heading;
+    font-weight: 500;
+
+    @include mq($until: tablet) {
+        margin-bottom: 6px;
+    }
+}
+
+.column-card__column-subtitle {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: black;
+}
+
+.column-card.column-card.with-title {
+    .column-card__column-title {
+        color: black;
+        font-weight: bold;
+    }
+
+    .column-card__column-description {
+        color: #696868;
+    }
+}

@@ -1,0 +1,155 @@
+.button, .button:hover, .button:active, .button:visited {
+  display: inline-block;
+  padding: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  min-width: 118px;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-weight: bold;
+  font-style: normal;
+  font-family: 'Gotham';
+  border-width: 4px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  transition-property: color, background, text-decoration;
+  color: white;
+  background: transparent;
+  border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+
+  @include mq($until: tablet) {
+    padding: 10px;
+  }
+}
+
+button.button {
+  margin-left: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.button:hover, .button:active {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.button--solid, .button--solid:disabled, .button.primary:disabled:hover {
+  border-style: solid;
+  padding: 10px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.button.primary, .button.primary:visited {
+  @extend .button--solid;
+  border-color: $colour-accent;
+  background: white;
+  color: $colour-accent;
+}
+
+.button.primary:hover {
+  @extend .button--solid;
+  border-color: $colour-accent;
+  background: $colour-accent;
+  color: white;
+}
+
+.button.primary:active, .button.primary:focus {
+  @extend .button--solid;
+  border-color: $colour-accent-dark;
+  background: $colour-accent-dark;
+  color: white;
+}
+
+.button.secondary, .button.secondary:visited, .button.secondary:disabled:hover {
+  @extend .button--solid;
+  border-color: $colour-second;
+  background: white;
+  color: black;
+}
+
+.button.secondary:hover {
+  @extend .button--solid;
+  border-color: $colour-second;
+  background: $colour-second;
+  color: black;
+}
+
+.button.secondary:active, .button.secondary:focus {
+  @extend .button--solid;
+  border-color: $colour-second-dark;
+  background: $colour-second-dark;
+  color: black;
+}
+
+.button.light, .button.light:visited, .button.light:disabled:hover {
+  @extend .button--solid;
+  border-color: white;
+  background: transparent;
+  color: white;
+}
+
+.button.light:hover {
+  @extend .button--solid;
+  border-color: white;
+  background: white;
+  color: black;
+}
+
+.button.light:active, .button.light:focus {
+  @extend .button--solid;
+  border-color: $colour-light-grey;
+  background: $colour-light-grey;
+  color: black;
+}
+
+.button.cta, .button.cta:visited, .button.cta:disabled:hover {
+  @extend .button--solid;
+  border-color: $colour-accent;
+  background: transparent;
+  color: $colour-accent;
+}
+
+.button.cta:hover {
+  @extend .button--solid;
+  border-color: $colour-accent;
+  background: $colour-accent;
+  color: white;
+}
+
+.button.cta:active, .button.cta:focus {
+  @extend .button--solid;
+  border-color: $colour-accent;
+  background: $colour-accent;
+  color: white;
+}
+
+.button.login, .button.login:visited, .button.login:disabled:hover {
+  @extend .button--solid;
+  border-color: $colour-light-grey;
+  background: transparent;
+  color: $colour-light-grey;
+}
+
+.button.login:hover {
+  @extend .button--solid;
+  border-color: $colour-light-grey;
+  background: $colour-light-grey;
+  color: black;
+}
+
+.button.login:active, .button.login:focus {
+  @extend .button--solid;
+  border-color: $colour-light-grey;
+  background: $colour-light-grey;
+  color: black;
+}

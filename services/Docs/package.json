@@ -1,0 +1,14 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build-admin": "aglio --theme-variables slate -i admin.apib -o admin.html",
+    "build-mobile": "aglio --theme-variables slate -i mobile.apib -o mobile.html",
+    "build": "npm run build-admin; npm run build-mobile"
+  },
+  "private": true,
+  "dependencies": {
+    "aglio": "^2.3.0"
+  }
+}

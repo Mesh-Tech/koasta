@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  app:layout_constrainedHeight="true"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <ImageView
+    android:id="@+id/enable_location_card_icon"
+    android:layout_width="58dp"
+    android:layout_height="55dp"
+    app:layout_constrainedHeight="true"
+    android:src="@drawable/location"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="32dp"
+    android:contentDescription="@string/icon_location_access_description" />
+
+  <TextView
+    android:id="@+id/enable_location_card_title"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constrainedHeight="true"
+    android:text="@string/enable_location_card_title"
+    android:textSize="17sp"
+    android:fontFamily="@font/manrope_medium"
+    app:layout_constraintLeft_toRightOf="@id/enable_location_card_icon"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="32dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="16dp" />
+
+  <TextView
+    android:id="@+id/enable_location_card_subtitle"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constrainedHeight="true"
+    android:text="@string/enable_location_card_subtitle"
+    android:textSize="15sp"
+    android:alpha="0.8"
+    app:layout_constraintLeft_toRightOf="@id/enable_location_card_icon"
+    app:layout_constraintTop_toTopOf="@id/enable_location_card_title"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="32dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="16dp" />
+
+  <Button
+    android:id="@+id/enable_location_card_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintLeft_toRightOf="@id/enable_location_card_icon"
+    app:layout_constraintTop_toBottomOf="@id/enable_location_card_subtitle"
+    android:theme="@style/StandardPlainButtonTheme"
+    android:text="@string/enable_location_card_button_title"
+    android:layout_marginTop="6dp" />
+
+  <View
+    android:id="@+id/enable_location_card_bottom_spacer"
+    android:layout_width="0dp"
+    android:layout_height="32dp"
+    app:layout_constrainedHeight="true"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/enable_location_card_button"
+    app:layout_constraintRight_toRightOf="parent" />
+
+  <View
+    android:id="@+id/enable_location_card_bottom_border"
+    android:layout_width="0dp"
+    android:layout_height="1dp"
+    app:layout_constrainedHeight="true"
+    android:background="@color/colorAccentLight"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/enable_location_card_bottom_spacer"
+    app:layout_constraintRight_toRightOf="parent" />
+
+  <View
+    android:id="@+id/enable_location_card_bottom_gap"
+    android:layout_width="0dp"
+    android:layout_height="10dp"
+    app:layout_constrainedHeight="true"
+    android:background="@color/colorAccentLight"
+    android:alpha="0.2"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/enable_location_card_bottom_border"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

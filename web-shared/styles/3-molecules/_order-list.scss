@@ -1,0 +1,27 @@
+.order-list {
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+    border-radius: 5px;
+    padding: 20px;
+    list-style: none;
+
+    li {
+        display: flex;
+    }
+
+    .item-title {
+        flex: 1;
+    }
+
+    .item-price {
+        flex: 0;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+}
+
+@include mq($until: tablet) {
+    .order-list {
+        padding: 10px;
+    }
+}

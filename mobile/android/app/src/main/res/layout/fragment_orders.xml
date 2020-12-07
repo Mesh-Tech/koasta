@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="io.meshtech.koasta.fragment.OrdersFragment"
+  android:theme="@style/AppTheme">
+
+  <ScrollView
+    android:id="@+id/loading"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    tools:ignore="UselessParent">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+      <include android:id="@+id/venues_loading_placeholder_a" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_b" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_c" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_d" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_e" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_f" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_g" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_h" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_i" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_j" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_k" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_l" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_m" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_n" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_o" layout="@layout/layout_order_loading_item" />
+      <include android:id="@+id/venues_loading_placeholder_p" layout="@layout/layout_order_loading_item" />
+    </LinearLayout>
+  </ScrollView>
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/empty"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      tools:visibility="visible">
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        tools:ignore="UselessParent">
+        <TextView
+          android:id="@+id/orders_empty_title"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/orders_no_orders_title"
+          android:textSize="24sp"
+          android:fontFamily="@font/manrope_medium"
+          android:layout_marginBottom="20dp"/>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/orders_no_orders_subtitle"
+          android:textSize="16sp"
+          android:alpha="0.8" />
+      </LinearLayout>
+    </RelativeLayout>
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/colorAccentLighter" />
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</FrameLayout>

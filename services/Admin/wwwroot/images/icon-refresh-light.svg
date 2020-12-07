@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>android-refresh</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Refresh-button" transform="translate(-9.000000, -9.000000)" fill="#ffffff" fill-rule="nonzero">
+            <g id="android-refresh">
+                <g transform="translate(9.000000, 9.000000)">
+                    <path d="M12,21 C7.05020455,21 3,16.9496591 3,12 C3,7.04993182 7.05020455,3 12,3 C14.475,3 16.7249318,4.05 18.3004091,5.70006818 L13.5,10.5 L24,10.5 L24,0 L20.4751364,3.52513636 C18.3004091,1.34986364 15.3004091,0 12,0 C5.40020455,0 0,5.40020455 0,12 C0,18.5997955 5.32459091,24 12,24 C17.5257955,24 22.1104773,20.3090455 23.5500682,15.2727273 L20.3761364,15.2727273 C19.0980682,18.6518864 15.7985455,21 12,21 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

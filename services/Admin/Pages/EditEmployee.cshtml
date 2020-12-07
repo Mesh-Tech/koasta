@@ -1,0 +1,61 @@
+@page "{employeeId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model EditEmployeeModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Title</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+            <fieldset class="form-group">
+                <label asp-for="Input.EmployeeName">Name</label>
+                <input asp-for="Input.EmployeeName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.EmployeeName"></span>
+            </fieldset>
+
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Security</h2>
+            <div class="row">
+                <fieldset class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <label asp-for="Input.Username">Username</label>
+                    <input asp-for="Input.Username" class="form-control" />
+                    <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.Username"></span>
+                </fieldset>
+                <fieldset class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <label asp-for="Input.Password">Password</label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.Password"></span>
+                </fieldset>
+            </div>
+
+            <fieldset class="form-group">
+                <label asp-for="Input.RoleId">Role</label>
+                <div class="alert alert-info d-block mb-4" role="alert">
+                <p>Roles allow you to limit what employees can do with your Koasta account. Please assign an appropriate role for this employee.</p>
+                    <ul>
+                        <li>Bar staff can only view information about their current venue, and access the sales interface</li>
+                        <li>Bar managers can edit information for their current venue, including menus and products</li>
+                        <li>Company staff can view information for your company</li>
+                        <li>Company managers can edit information for your company</li>
+                    </ul>
+                </div>
+                <select class="form-control" asp-for="Input.RoleId" data-input-type="select-input">
+                    @foreach(var role in Model.Roles)
+                    {
+                        <option value="@role.RoleId" selected="@(Model.Role.RoleId == role.RoleId)">@role.RoleName</option>
+                    }
+                </select>
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.RoleId"></span>
+            </fieldset>
+
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4">Save changes</button>
+        </form>
+    </div>
+</section>

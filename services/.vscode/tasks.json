@@ -1,0 +1,117 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-admin",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/Admin/Admin.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-auth",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/auth/auth.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-company",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/company/company.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-employee",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/employee/employee.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-event",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/event/event.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-image",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/image/image.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-menu",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/menu/menu.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-order",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/order/order.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-product",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/product/product.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-subscription",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/subscription/subscription.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-tag",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/tag/tag.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-user",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/user/user.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-venue",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/venue/venue.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-monolith",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/monolith/monolith.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-flags",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/flags/flags.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-scheduler",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/scheduler/scheduler.csproj"],
+      "doobydooproblemMatcher": "$msCompile"
+    }
+  ]
+}

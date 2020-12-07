@@ -1,0 +1,57 @@
+@page "{userId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model UserModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Title</span></h1>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Details
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong class="col-3">User ID</strong>
+                    <div class="col-9">@(Model.SelectedUser.UserId)</div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Registration ID</strong>
+                    <div class="col-9">@(Model.SelectedUser.RegistrationId ?? "")</div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Name</strong>
+                    <div class="col-9">@(Model.SelectedUser.FirstName) @(Model.SelectedUser.LastName)</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Social IDs
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong class="col-3">Facebook ID</strong>
+                    <div class="col-9">@(Model.SelectedUser.FacebookUserIdentifier ?? "None")</div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Apple ID</strong>
+                    <div class="col-9">@(Model.SelectedUser.AppleUserIdentifier ?? "None")</div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Google ID</strong>
+                    <div class="col-9">@(Model.SelectedUser.GoogleUserIdentifier ?? "None")</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

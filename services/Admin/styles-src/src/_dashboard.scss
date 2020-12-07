@@ -1,0 +1,192 @@
+body {
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+.navbar-brand {
+  > img {
+    margin-right: 10px;
+  }
+
+  > span {
+    font-family: 'Comfortaa', sans-serif;
+  }
+
+  > * {
+    vertical-align: middle;
+  }
+}
+
+/*
+  * Sidebar
+  */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    margin-top: -2px;
+  }
+
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: $blue;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+  * Navbar
+  */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.nav--item-nested .nav {
+  margin-left: 20px;
+}
+
+/**
+ * Creates a "breakpoint" based class, for example:
+ *    $create-breakpoint-class('btn', 'purple')
+ *      --> .btn-purple, .btn-sm-purple, .btn-md-purple, ...
+ *    Where the class' content is applicable to that screen size.
+ */
+ @mixin create-breakpoint-class ($class-name-prefix, $class-name-suffix) {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .#{$class-name-prefix}#{$infix}-#{$class-name-suffix} {
+      @include media-breakpoint-up ($breakpoint) {
+        @content;
+      }
+    }
+  }
+}
+
+@include create-breakpoint-class('w', '25') {
+  width: 25% !important;
+  flex-basis: 25% !important;
+}
+
+@include create-breakpoint-class('w', '48') {
+  width: 48% !important; 
+  flex-basis: 48% !important;
+}
+
+@include create-breakpoint-class('w', '23') {
+  width: 23% !important; 
+  flex-basis: 23% !important;
+}
+
+.alert.field-validation-valid {
+  display: none !important;
+}
+
+fieldset {
+  .alert {
+    display: inline-block;
+  }
+}
+
+.card.col img {
+  height: 200px;
+  object-fit: cover;
+}
+
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+input[type="time"],
+select,
+.input-checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+}

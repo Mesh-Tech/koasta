@@ -1,0 +1,36 @@
+.info-card {
+    border-radius: 4px;
+    padding: 20px;
+    display: block;
+    background: $colour-faded-grey;
+    color: black;
+
+    .title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: bold;  
+      margin: 0;
+      margin-bottom: 8px;
+    }
+
+    .description {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
+.info-card.bad {
+    background: $colour-bad;
+    color: black;
+}
+
+.info-card.iffy {
+    background: $colour-iffy;
+    color: black;
+}
+
+.info-card.good {
+    background: $colour-good;
+    color: black;
+}

@@ -1,0 +1,293 @@
+{
+    "logging": {
+        "log_config": "config/log4rs.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": false,
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "CHANGEME",
+        "stub_messaging": false,
+        "rabbitmq_hostname": "internal-rabbitmq-live-rabbitmq-elb-1139617302.eu-west-1.elb.amazonaws.com",
+        "rabbitmq_username": "admin",
+        "rabbitmq_password": "CHANGEME",
+        "memcached_url": "live-cache.94nhkb.cfg.euw1.cache.amazonaws.com"
+    },
+    "meta": {
+        "debug": false,
+        "transaction_fee_percentage": 0.08,
+        "transaction_fee_minimum": 0.4,
+        "payment_processor_fee_percentage": 0.025,
+        "requires_message_queue": true,
+        "enable_access_token_encryption": true,
+        "api_auth_requirements": {
+            "create_menu": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "delete_menu": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "update_menu": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "create_ephemeral_key": {
+                "user_type": "user"
+            },
+            "create_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_company": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "list_companies": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "update_company": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "create_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_own_employee": {
+                "user_type": "employee"
+            },
+            "list_company_employees": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "list_employee_roles": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "list_employees": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "list_venue_employees": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "update_employee": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "create_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "delete_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "update_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "upload_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "fetch_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "fetch_images": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "create_order": {
+                "user_type": "any"
+            },
+            "fetch_order_status": {
+                "user_type": "any"
+            },
+            "fetch_full_order": {
+                "user_type": "any"
+            },
+            "estimate_order": {
+                "user_type": "any"
+            },
+            "fetch_full_incomplete_orders": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_full_complete_orders": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_orders": {
+                "user_type": "user"
+            },
+            "update_order_status": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "create_product": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "delete_product": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "fetch_product_types": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_product": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_products": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "update_product": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "create_full_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "create_package": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "create_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_my_plan": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "fetch_package": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_packages": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "update_plan": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "admin_fetch_devices": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "admin_delete_device": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "create_device": {
+                "user_type": "user"
+            },
+            "create_venue": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "delete_venue": {
+                "user_type": "employee",
+                "administer_company": true
+            },
+            "fetch_company_venues": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "update_venue": {
+                "user_type": "employee",
+                "administer_venue": true
+            },
+            "create_review": {
+                "user_type": "user"
+            },
+            "update_review": {
+                "user_type": "user"
+            },
+            "admin_fetch_reviews": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "admin_update_review": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "admin_fetch_review": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "admin_fetch_unmoderated_reviews": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "create_flag": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_flag": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_flags": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_flag": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "update_flag": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "refresh": {
+                "user_type": "employee",
+                "work_with_venue": true
+            },
+            "fetch_own_user": {
+                "user_type": "user"
+            }
+        }
+    },
+    "auth": {
+        "hash_cost": 10,
+        "auth_token_validity_minutes": 5,
+        "refresh_token_validity_minutes": 30,
+        "facebook_auth_verify_url": "https://graph.facebook.com/me/?fields=name,email&access_token={0}"
+    }
+}

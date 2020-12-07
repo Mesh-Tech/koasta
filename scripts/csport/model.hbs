@@ -1,0 +1,16 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+namespace Koasta.Shared.Models
+{
+    [CompilerGeneratedAttribute()]
+    public partial class {{className}}
+    {
+        {{#each entries}}
+        {{#if dbFieldName ~}}[Column("{{dbFieldName}}")]
+        {{/if}}public {{dataType}}{{nullablePrimitive this}} {{fieldName}} { get; set; }
+        {{/each}}
+    }
+}

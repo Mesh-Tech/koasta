@@ -1,0 +1,30 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": true,
+        "aws_access_key_id": "CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-dev",
+        "s3_private_bucket_name": "koasta-pvt-uploads-dev",
+        "cf_private_root_endpoint": "https://d2z0sikxin2efg.cloudfront.net",
+        "rabbitmq_hostname": "127.0.0.1",
+        "rabbitmq_username": "pubcrawladmin",
+        "rabbitmq_password": "password"
+    },
+    "meta": {
+        "debug": true,
+        "enable_access_token_encryption": false
+    },
+    "auth": {
+        "hash_cost": 10,
+        "auth_token_validity_minutes": 5,
+        "refresh_token_validity_minutes": 30,
+        "facebook_auth_verify_url": "https://graph.facebook.com/me/?fields=name,email&access_token={0}"
+    }
+}

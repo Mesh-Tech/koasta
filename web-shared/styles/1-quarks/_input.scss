@@ -1,0 +1,56 @@
+input, textarea, select {
+  border: solid #D1D1D1 1px;
+  border-radius: 3px;
+  background: #FFFFFF;
+  font-size: 1.13rem;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  color: black;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 19px;
+  padding-right: 19px;
+  line-height: 1.5rem;
+  transition: border 0.3s ease-in-out;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  padding-right: 30px;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+input {
+  min-height: 44px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: $colour-second;
+  outline: none;
+}
+
+input:hover, textarea:hover, select:hover {
+  border-color: $colour-second;
+  outline: none;
+}
+
+input.inset {
+  box-shadow: inset 0 2px 2px 0 rgba(0,0,0,0.10);
+}

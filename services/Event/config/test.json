@@ -1,0 +1,29 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": true,
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "internal-rabbitmq-test-rabbitmq-elb-1293400706.eu-west-1.elb.amazonaws.com",
+        "rabbitmq_username": "admin",
+        "rabbitmq_password": "CHANGEME",
+        "apple_push_key": "CHANGEME",
+        "apple_push_team_id": "CHANGEME",
+        "apple_push_key_id": "CHANGEME",
+        "apple_push_bundle_id": "io.meshtech.pubcrawl",
+        "firebase_server_key": "CHANGEME",
+        "firebase_sender_id": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/event",
+        "debug": true,
+        "api_auth_requirements": {}
+    }
+}

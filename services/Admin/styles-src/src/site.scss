@@ -1,0 +1,10 @@
+$font-family-sans-serif: 'Manrope', sans-serif;
+$blue: #2d4497;
+
+html, body, main.root {
+  height: 100%;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "dashboard";
+@import "legacy";

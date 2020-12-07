@@ -1,0 +1,17 @@
+{
+  "name": "styles-src",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node-sass src/site.scss --include-path=node_modules --output-style compressed -o ../wwwroot/css",
+    "build:dev": "node-sass src/site.scss --include-path=node_modules -o ../wwwroot/css",
+    "start": "npm run build:dev && node-sass src/site.scss --include-path=node_modules -wo ../wwwroot/css"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "node-sass-tilde-importer": "^1.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  }
+}

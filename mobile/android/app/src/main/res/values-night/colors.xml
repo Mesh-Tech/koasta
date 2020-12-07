@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#F42759</color>
+  <color name="colorPrimaryDark">#e13f5c</color>
+  <color name="colorPrimaryBright">#f12c5c</color>
+  <color name="colorAccent">#A6A6A6</color>
+  <color name="colorAccentDark">#BABABA</color>
+  <color name="colorAccentLight">#232323</color>
+  <color name="colorAccentLighter">#151515</color>
+  <color name="colorBackground">#000000</color>
+  <color name="colorForeground">#ffffff</color>
+  <color name="onboarding_caption_title_colour">#ffffff</color>
+  <color name="colorOrange">#f1985c</color>
+  <color name="colorPaleGreen">#61c263</color>
+  <color name="colorBluePlaceholder">#9FD9FB</color>
+  <color name="colorGreenPlaceholder">#CBD3A0</color>
+  <color name="colorRedPlaceholder">#F395AC</color>
+  <color name="colorYellowPlaceholder">#FBE79F</color>
+</resources>

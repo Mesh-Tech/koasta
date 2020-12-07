@@ -1,0 +1,17 @@
+.login-panel {
+    color: white;
+    width: 308px;
+
+    button, button:hover, button:active, button:visited {
+        margin-top: 20px;
+        margin-right: 0;
+        display: block;
+        width: 100%;
+    }
+
+    fieldset {
+        input {
+            width: 100%;
+        }
+    }
+}

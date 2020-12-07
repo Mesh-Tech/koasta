@@ -1,0 +1,57 @@
+@page "{venueId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model AddProductModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">New Product</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+
+                        <fieldset class="form-group">
+                <label asp-for="Input.ProductName">Name</label>
+                <input asp-for="Input.ProductName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.ProductName"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.ProductTypeId" data-toggle="tooltip" data-placement="right" title="Product types are a useful way to categorise your products. It helps us display relevant search results, and drive customers to products of interest.">Type <partial name="_IconInfo" /></label>
+                <select class="form-control" asp-for="Input.ProductTypeId" data-input-type="select-input">
+                    @foreach(var type in Model.ProductTypes)
+                    {
+                        <option value="@type.ProductTypeId">@type.ProductTypeName</option>
+                    }
+                </select>
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.ProductTypeId"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.ProductDescription" data-toggle="tooltip" data-placement="right" title="This is the description of the product shown in the app. For best results, limit this to a few sentences. If you leave this blank, we won't show a description in the app.">Description <partial name="_IconInfo" /></label>
+                <textarea asp-for="Input.ProductDescription" class="form-control"></textarea>
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.ProductDescription"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.Price">Price</label>
+                <input placeholder="10.99" asp-for="Input.Price" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.Price"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-check">
+                    <input placeholder="AgeRestricted" asp-for="Input.AgeRestricted" type="checkbox" class="form-check-input" />
+                    <label asp-for="Input.AgeRestricted" class="form-check-label">
+                        Age Restricted
+                    </label>
+                </div>
+                <p class="alert alert-info d-block mt-4">If your product is age-restricted, please indicate so here. We use this to show an age verification prompt before the customer makes a purchase, and we also indicate to your bar staff when an order contains age restricted products.</p>
+            </fieldset>
+  
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4"><span>Save product</span></button>
+        </form>
+    </div>
+</section>

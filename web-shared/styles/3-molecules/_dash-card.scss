@@ -1,0 +1,97 @@
+.dash-cards--card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    background: white;
+    height: 280px;
+    position: relative;
+
+    .chart-container {
+        flex: 1;
+    }
+
+    .dash-cards--live-indicator {
+        position: absolute;
+        right: 30px;
+        top: 10px;
+    }
+
+    .dash-cards--live-indicator-dot {
+        width: 20px;
+        height: 20px;
+        border: 2px solid white;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background-color: #d70206;
+        z-index: 10;
+        position: absolute;
+      }
+      
+      .dash-cards--live-indicator-pulse {
+        border: 10px solid white;
+        background: transparent;
+        -webkit-border-radius: 60px;
+        -moz-border-radius: 60px;
+        border-radius: 60px;
+        height: 40px;
+        width: 40px;
+        animation: dashcardsliveindicatorpulse 3s ease-out;
+        animation-iteration-count: infinite;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        z-index: 1;
+        opacity: 0;
+      }
+}
+
+.dash-cards--card-title {
+    background: $colour-accent;
+    color: white;
+    width: 100%;
+    flex-basis: 100%;
+    padding: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin: 0;
+    line-height: 1;
+    flex: 0;
+    text-transform: uppercase;
+    border-bottom: 2px solid $colour-accent-bright;
+    font-weight: 700;
+    text-align: center;
+    user-select: none;
+}
+
+.dash-cards--card-body {
+    flex: 1;
+    font-size: 12rem;
+    text-align: center;
+    line-height: 1;
+    padding-top: 20px;
+    user-select: none;
+}
+
+@keyframes dashcardsliveindicatorpulse {
+    0% {
+       transform: scale(0);
+       opacity: 0.0;
+    }
+    25% {
+       transform: scale(0);
+       opacity: 0.1;
+    }
+    50% {
+       transform: scale(0.1);
+       opacity: 0.3;
+    }
+    75% {
+       transform: scale(0.5);
+       opacity: 0.5;
+    }
+    100% {
+       transform: scale(1);
+       opacity: 0.0;
+    }
+   }

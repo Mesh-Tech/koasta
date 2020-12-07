@@ -1,0 +1,43 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "public_url": "http://127.0.0.1:5001",
+        "uses_api_ns": false,
+        "database_url": "CHANGEME",
+        "host_port": "5001",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-dev",
+        "rabbitmq_hostname": "127.0.0.1",
+        "rabbitmq_username": "pubcrawladmin",
+        "rabbitmq_password": "password"
+    },
+    "meta": {
+        "path_base": "/company",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "delete_company": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "fetch_company": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "list_companies": {
+                "user_type": "employee",
+                "administer_system": true
+            },
+            "update_company": {
+                "user_type": "employee",
+                "administer_company": true
+            }
+        }
+    }
+}

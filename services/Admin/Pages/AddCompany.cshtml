@@ -1,0 +1,53 @@
+@page
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model AddCompanyModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">New Company</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+
+                        <fieldset class="form-group">
+                <label asp-for="Input.CompanyName">Name</label>
+                <input asp-for="Input.CompanyName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyName"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.CompanyAddress">Business Address</label>
+                <input asp-for="Input.CompanyAddress" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyAddress"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.CompanyPostcode">Postcode</label>
+                <input asp-for="Input.CompanyPostcode" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyPostcode"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.CompanyContact">Admin name / department</label>
+                <input placeholder="John Smith" asp-for="Input.CompanyContact" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyContact"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.CompanyPhone">Contact Number</label>
+                <input asp-for="Input.CompanyPhone" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyPhone"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.CompanyEmail">E-mail address</label>
+                <input asp-for="Input.CompanyEmail" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.CompanyEmail"></span>
+            </fieldset>
+  
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4"><span>Save company</span></button>
+        </form>
+    </div>
+</section>

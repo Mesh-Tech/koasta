@@ -1,0 +1,60 @@
+.order-detail--left {
+    flex: 0.5;
+    height: 100vh;
+    display: flex;
+
+    .placeholder {
+        flex: 1;
+        margin: 10px;
+        margin-right: 0;
+    }
+}
+
+.order-detail--right {
+    flex: 0.5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-detail--top-right-loading {
+    flex-direction: row;
+}
+
+.order-detail--top-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .placeholder {
+        flex: 1;
+        margin: 10px;
+        margin-bottom: 0;
+    }
+
+    .info-card {
+        flex: 0;
+        margin: 10px;
+        margin-bottom: 0;
+    }
+}
+
+.order-detail--bottom-right {
+    height: 80px;
+    display: flex;
+    text-align: center;
+
+    .placeholder {
+        flex: 1;
+        margin: 10px;
+    }
+
+    button {
+        flex: 1;
+        margin: 10px;
+    }
+
+    button + button {
+        margin-left: 0;
+    }
+}

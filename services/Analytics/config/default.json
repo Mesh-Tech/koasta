@@ -1,0 +1,21 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5544",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-dev",
+        "rabbitmq_hostname": "127.0.0.1",
+        "rabbitmq_username": "pubcrawladmin",
+        "rabbitmq_password": "password",
+        "push_service_key": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/analytics",
+        "debug": true,
+        "api_auth_requirements": {}
+    }
+}

@@ -1,0 +1,1019 @@
+FORMAT: 1A
+HOST: https://test.api.koasta.com
+
+# Koasta Administration API
+## Version 1.0
+
+The Koasta Administration API allows for the management of core data in the Koasta system.
+It is only usable with Employee credentials.
+
+Certain requests will have required role permissions. These will be denoted for each request if required.
+
+The following table details the available roles and their permissions:
+
+Role Name       | Venue Worker | Venue Admin | Company Worker | Company Admin | Sysadmin
+---------------:| ------------ | ----------- | -------------- | ------------- | ----------
+None            | [ ] &nbsp;   | [ ] &nbsp;  | [ ] &nbsp;     | [ ] &nbsp;    | [ ] &nbsp;
+Bar Staff       | [X] &nbsp;   | [ ] &nbsp;  | [ ] &nbsp;     | [ ] &nbsp;    | [ ] &nbsp;
+Bar Manager     | [X] &nbsp;   | [X] &nbsp;  | [ ] &nbsp;     | [ ] &nbsp;    | [ ] &nbsp;
+Company Staff   | [X] &nbsp;   | [X] &nbsp;  | [X] &nbsp;     | [ ] &nbsp;    | [ ] &nbsp;
+Company Manager | [X] &nbsp;   | [X] &nbsp;  | [X] &nbsp;     | [X] &nbsp;    | [ ] &nbsp;
+Sysadmin        | [X] &nbsp;   | [X] &nbsp;  | [X] &nbsp;     | [X] &nbsp;    | [X] &nbsp;
+
+# Group Authentication
+
+Authentication in Koasta is handled similarly to OAuth 2, however in a much simpler format.
+
+You authenticate with a username and password, and in return you're immediately issued an
+authentication token and a refresh token.
+
+:::note
+Token expiry is completely opaque from the consumer. It is up to the consumer to handle 401
+responses and attempt to refresh. If refreshing also returns a 401, you must re-authenticate
+with credentials.
+:::
+
+## Authenticating with credentials [/auth/authorise]
+
+### Create session [POST]
+
++ request (application/json)
+    + Attributes (AuthenticationRequest)
++ Response 200 (application/json)
+    + Attributes (AuthenticationResponse)
+
+## Refreshing a login session [/auth/refresh]
+
+### Refresh session [POST]
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
+    + Attributes (RefreshRequest)
++ Response 200 (application/json)
+    + Attributes (AuthenticationResponse)
+
+## Data Structures
+
+### AuthenticationRequest
++ username: jdoe (string, required)
++ password: Password_1 (string, required)
+
+### AuthenticationResponse
++ authToken (string, required)
++ refreshToken (string, required)
+
+### RefreshRequest
++ refreshToken (string, required)
+
+# Group Companies
+
+## Working with companies [/companies]
+
+### List companies [GET]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[CompanyResponse])
++ Response 400
++ Response 401
+
+### Create company [POST]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (CompanyRequest)
+
++ Response 201
++ Response 400
++ Response 401
++ Response 404
+
+## Working with a single company [/company/{company_id}]
+
++ Parameters
+    + company_id (number) - A Company ID
+
+### Fetch company [GET]
+
+::: note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (CompanyResponse)
++ Response 400
++ Response 401
++ Response 404
+
+### Update company [PUT]
+
+::: note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (CompanyRequest)
+
++ Response 200
++ Response 400
++ Response 401
++ Response 404
+
+### Delete company [DELETE]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
++ Response 400
++ Response 401
++ Response 404
+
+## Data Structures
+
+### CompanyResponse
++ companyId (number, required)
++ companyName (string, required)
++ companyAddress (string, required)
++ companyPostcode (string, required)
++ companyContact (string, optional)
++ companyPhone (string, required)
++ companyEmail (string, required)
++ externalAccountId (string, optional)
++ externalCustomerId (string, optional)
+
+### CompanyRequest
++ companyName (string, required)
++ companyAddress (string, required)
++ companyPostcode (string, required)
++ companyContact (string, optional)
++ companyPhone (string, required)
++ companyEmail (string, required)
++ bankAccountIsBusiness (boolean, required)
++ accountNumber (string, required)
++ sortCode (string, required)
++ nameOnAccount (string, required)
++ cardNumber (string, required)
++ cardExpiryMonth (string, required)
++ cardExpiryYear (string, required)
++ cardCVC (string, required)
+
+
+# Group Employees
+
+## Working with employees [/employee]
+
+### List employees [GET]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[EmployeeResponse])
++ Response 400
++ Response 401
+
+### Create employee [POST]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (EmployeeRequest)
+
++ Response 201
++ Response 400
++ Response 401
++ Response 404
+
+## Working with a single employee [/employee/{employee_id}]
+
++ Parameters
+    + employee_id (number) - An employee ID
+
+### Fetch employee [GET]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (EmployeeResponse)
++ Response 400
++ Response 401
++ Response 404
+
+### Delete employee [DELETE]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
++ Response 400
++ Response 401
++ Response 404
+
+### Update employee [PUT]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (EmployeeRequest)
+
++ Response 201
++ Response 400
++ Response 401
++ Response 404
+
+## Working with a session's employee resource [/employee/me]
+
+### Fetch session employee [GET]
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (FullEmployeeResponse)
++ Response 400
++ Response 401
++ Response 404
+
+## Working with a company's employees [/employee/company/{company_id}]
+
++ Parameters
+    + company_id (number) - A Company ID
+
+### List company employees [GET]
+
+:::note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[EmployeeResponse])
++ Response 400
++ Response 401
++ Response 404
+
+## Working with a venue's employees [/employee/venue/{venue_id}]
+
++ Parameters
+    + venue_id (number) - A Company ID
+
+### List venue employees [GET]
+
+:::note
+Requires **Venue Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[EmployeeResponse])
++ Response 400
++ Response 401
++ Response 404
+
+## Working with employee roles [/employee/roles]
+
+### List employee roles [GET]
+
+:::note
+Requires **Venue Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[EmployeeRoleResponse])
++ Response 400
++ Response 401
++ Response 404
+
+## Data Structures
+
+### EmployeeResponse
++ employeeId (number, required)
++ employeeName (string, required)
++ username (string, required)
++ passwordHash (string, required)
++ companyId (number, optional)
++ venueId (number, required)
++ roleId (number, optional)
+
+### FullEmployeeResponse
++ employeeId (number, required)
++ employeeName (string, required)
++ username (string, required)
++ passwordHash (string, required)
++ companyId (number, optional)
++ venueId (number, required)
++ roleId (number, optional)
++ canWorkWithVenue (boolean, required)
++ canAdministerVenue (boolean, required)
++ canWorkWithCompany (boolean, required)
++ canAdministerCompany (boolean, required)
++ canAdministerSystem (boolean, required)
+
+### EmployeeRoleResponse
++ roleId (number, required)
++ roleName (string, required)
++ canWorkWithVenue (boolean, required)
++ canAdministerVenue (boolean, required)
++ canWorkWithCompany (boolean, required)
++ canAdministerCompany (boolean, required)
++ canAdministerSystem (boolean, required)
+
+### EmployeeRequest
++ venueId (number, required)
++ companyId (number, required)
++ username (string, required)
++ password (string, optional)
++ employeeName (string, required)
++ roleId (number, optional)
+
+# Group Menus
+
+## Working with menus [/menu/{venue_id}]
+
++ Parameters
+    + venue_id (number) - A Venue ID
+
+### List menus [GET]
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[MenuResponse])
++ Response 400
++ Response 401
+
+### Create menu [POST]
+
+:::note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewMenuRequest)
+
++ Response 201
++ Response 400
++ Response 401
+
+### Update menu [PUT]
+
+:::note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (UpdateMenuRequest)
+
++ Response 200
++ Response 400
++ Response 401
+
+### Delete menu [DELETE]
+
+:::note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
++ Response 400
++ Response 401
+
+## Working with individual menus [/menu/{venue_id}/{menu_id}]
+
++ Parameters
+    + venue_id (number) - A Venue ID
+    + menu_id (number) - A Menu ID
+
+### Fetch menu [GET]
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (LightMenuResponse)
++ Response 400
++ Response 401
+
+## Data Structures
+
+### MenuResponse
++ menuId (number, required)
++ venueId (number, required)
++ menuDescription (string, required)
++ menuName (string, required)
++ menuImage (string, optional)
++ products (array[ProductResponse], required)
+
+### LightMenuResponse
++ menuId (number, required)
++ venueId (number, required)
++ menuDescription (string, required)
++ menuName (string, required)
++ menuImage (string, optional)
+
+### ProductResponse
++ productId (number, required)
++ productType (string, required)
++ productName (string, required)
++ productDescription (string, required)
++ price (number, required)
++ image (string, required)
++ ageRestricted (boolean, required)
+
+### NewMenuRequest
++ menuDescription (string, required)
++ menuName (string, required)
++ menuImage (string, optional)
++ products (array[number], required)
+
+### UpdateMenuRequest
++ menuId (number, required)
++ menuDescription (string, required)
++ menuName (string, required)
++ menuImage (string, optional)
++ products (array[number], required)
+
+# Group Orders
+
+## Managing individual orders [/order/{order_id}]
+
++ Parameters
+    + order_id (number, required)
+
+### Update order status [PUT]
+
+:::note
+Requires **Venue Worker** permissions
+:::
+
++ request
+    + Headers
+
+            User-Agent: pubcrawl/{platform_identifier}
+    + Attributes (OrderStatus)
+
++ Response 200
++ Response 400
++ Response 401
++ Response 404
+
+## Data Structures
+
+### OrderStatus
++ statusName (string, required)
+
+# Group Products
+
+## Working with a venue's products [/product/{venue_id}]
+
++ Parameters
+    + venue_id (number) - A Venue ID
+
+### List products [GET]
+
+::: note
+Requires **Venue Worker** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[ProductResponse])
++ Response 400
++ Response 401
+
+### Create product [POST]
+
+::: note
+Requires **Venue Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewProductRequest)
+
++ Response 201
++ Response 400
++ Response 401
+
+### Update product [PUT]
+
+::: note
+Requires **Venue Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (UpdateProductRequest)
+
++ Response 200
++ Response 400
++ Response 401
+
+### Delete product [DELETE]
+
+::: note
+Requires **Venue Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
++ Response 400
++ Response 401
+
+## Working with product types [/product/producttypes]
+
+### List product types [GET]
+
+::: note
+Requires **Venue Worker** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[ProductTypeResponse])
++ Response 400
++ Response 401
+
+## Working with an individual product [/product/{venue_id}/{product_id}]
+
++ Parameters
+    + venue_id (number) - A Venue ID
+    + product_id (number) - A Product ID
+
+### Fetch product [GET]
+
+::: note
+Requires **Venue Worker** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (ProductResponse)
++ Response 400
++ Response 401
+
+## Data Structures
+
+### NewProductRequest
++ productTypeId (number, required)
++ productName (string, required)
++ productDescription (string, optional)
++ price (number, required)
++ image (string, optional)
++ ageRestricted (boolean, required)
++ parentProductId (number, optional)
+
+### UpdateProductRequest
++ productId (number, required)
++ productTypeId (number, required)
++ productName (string, required)
++ productDescription (string, optional)
++ price (number, required)
++ image (string, optional)
++ ageRestricted (boolean, required)
++ parentProductId (number, optional)
+
+### ProductTypeResponse
++ productTypeId (number, required)
++ productTypeName (string, required)
+
+# Group Venues
+
+## Working with venues [/venue]
+
+### List venues [GET]
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[VenueResponse])
++ Response 400
++ Response 401
+
+### Create venue [POST]
+
+::: note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewVenueRequest)
+
++ Response 200 (application/json)
++ Response 400
++ Response 401
+
+## Working with an individual venue [/venue/{venue_id}]
+
++ Parameters
+    + venue_id (number, required)
+
+### Fetch venue [GET]
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (VenueResponse)
++ Response 400
++ Response 401
+
+### Update venue [PUT]
+
+::: note
+Requires **Venue Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewVenueRequest)
+
++ Response 200 (application/json)
++ Response 400
++ Response 401
+
+### Delete venue [DELETE]
+
+::: note
+Requires **Company Admin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
++ Response 400
++ Response 401
+
+## Working with a company's venues [/venue/{company_id}/venues]
+
++ Parameters
+    + company_id (number, required)
+
+### List company venues [GET]
+
+::: note
+Requires **Company Worker** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[VenueResponse])
++ Response 400
++ Response 401
+
+## Data Structures
+
+### VenueResponse
++ venueId (number, required)
++ companyId (number, required)
++ venueCode (string, required)
++ venueName (string, required)
++ venueAddress (string, required)
++ venuePostCode (string, required)
++ venuePhone (string, required)
++ venueContact (string, optional)
++ venueDescription (string, optional)
++ venueNotes (string, optional)
++ venueImage (string, optional)
++ imageId (number, optional)
++ venueLatitude (string, optional)
++ venueLongitude (string, optional)
++ tags (array[string], optional)
++ imageUrl (string, optional)
+
+### NewVenueRequest
++ companyId (number, required)
++ venueCode (string, required)
++ venueName (string, required)
++ venueAddress (string, required)
++ venuePostCode (string, required)
++ venuePhone (string, required)
++ venueContact (string, optional)
++ venueDescription (string, optional)
++ venueNotes (string, optional)
++ venueImage (string, optional)
++ imageId (number, optional)
++ venueLatitude (string, optional)
++ venueLongitude (string, optional)
+
+# Group Subscriptions
+
+## Working with packages [/subscription/packages]
+
+### List packages [GET]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (array[PackageResponse])
++ Response 400
++ Response 401
+
+### Create package [POST]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewPackageRequest)
+
++ Response 201
++ Response 400
++ Response 401
+
+## Working with packages [/subscription/packages/{package_id}]
+
++ Parameters
+    + package_id (number, required)
+
+### Fetch package [GET]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200 (application/json)
+    + Attributes (FullPackageResponse)
++ Response 400
++ Response 401
+
+## Working with plans [/subscription/plans]
+
+### Create plan [POST]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewPlan)
+
++ Response 200
++ Response 400
++ Response 401
+
+## Working with an employee's company plan [/subscription/plans/my-plan]
+
+### Fetch plan [GET]
+
+::: note
+Requires **Company Worker** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
+    + Attributes (FullPlanResponse)
++ Response 400
++ Response 401
+
+## Working with a company's plan [/subscription/plans/{company_id}]
+
++ Parameters
+    + company_id (number, required)
+
+### Fetch plan [GET]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
+    + Attributes (FullPlanResponse)
++ Response 400
++ Response 401
+
+### Create empty plan [POST]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
++ Response 400
++ Response 401
+
+## Working with an individual plan [/subscription/plans/{plan_id}]
+
++ Parameters
+    + plan_id (number, required)
+
+### Update plan [PUT]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+    + Attributes (NewPlan)
+
++ Response 200
++ Response 400
++ Response 401
+
+### Delete plan [DELETE]
+
+::: note
+Requires **Sysadmin** permissions
+:::
+
++ request(application/json)
+    + Headers
+
+            Authorization: Bearer XXXXXXXXXXXXXXXX
+
++ Response 200
++ Response 400
++ Response 401
+
+## Data Structures
+
+### PackageResponse
++ packageId (number, required)
++ packageName (string, required)
++ externalPackageId (string, required)
+
+### FullPackageResponse
++ packageId (number, required)
++ packageName (string, required)
++ externalPackageId (string, required)
++ monthlyAmount (number, required)
+
+### NewPackageRequest
++ identifier (string, required)
++ packageName (string, required)
++ monthlyAmount (number, required)
+
+### NewPlan
++ companyId (number, required)
++ packages (array[number], required)
+
+### FullPlanResponse
++ planId (number, required)
++ companyId (number, required)
++ externalPackageId (string, required)
++ packages (array[FullPackageResponse], required)

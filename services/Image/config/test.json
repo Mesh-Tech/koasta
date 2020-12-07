@@ -1,0 +1,45 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "koasta-uploads-test",
+        "rabbitmq_hostname": "rabbitmq.data.svc.cluster.local",
+        "rabbitmq_username": "pcadmin",
+        "rabbitmq_password": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/image",
+        "debug": true,
+        "api_auth_requirements": {
+            "create_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "delete_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "update_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "upload_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "fetch_image": {
+                "user_type": "employee",
+                "work_with_company": true
+            },
+            "fetch_images": {
+                "user_type": "employee",
+                "work_with_company": true
+            }
+        }
+    }
+}

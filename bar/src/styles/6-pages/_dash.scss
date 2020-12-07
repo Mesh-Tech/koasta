@@ -1,0 +1,133 @@
+.page--dash {
+    min-height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.title-bar {
+    height: 72px;
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    display: flex;
+    padding: 20px;
+    justify-content: right;
+    padding-right: 80px;
+
+    .title {
+        margin-right: auto;
+        align-self: center;
+        font-weight: 500;
+        font-size: 1.13rem;
+    }
+
+    a.data-link, a.data-link:hover, a.data-link:visited, a.data-link:focus, a.data-link:active {
+        text-decoration: none;
+        color: rgb(36, 53, 114);
+        font-weight: bold;
+        padding-top: 6px;
+        margin-left: 20px;
+    }
+}
+
+.section--orders {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    padding-top: 72px;
+}
+
+.section--order-list {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: calc(100vh - 72px);
+    padding: 0;
+
+    .data-card {
+        margin-bottom: 20px;
+        display: block;
+        transition-property: box-shadow, background, color;
+        transition-duration: 0.15s;
+    }
+
+    .data-card.selected {
+        background: $colour-navy;
+        color: white;
+        box-shadow: 0 5px 8px 0 rgba(0,0,0,0.40);
+    }
+
+    .data-card.selected:hover {
+        background: $colour-light-navy;
+    }
+}
+
+.section--order-contents {
+    padding-top: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    background-color: transparent;
+    height: calc(100vh - 72px);
+    overflow: scroll;
+
+    .order-receipt {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 5px;
+        padding: 20px;
+        padding-right: 40px;
+        background: #FFFFFF;
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        font-size: 1.13rem;
+        line-height: 1.5rem;
+        color: #000000;
+        text-decoration: none;
+        position: relative;
+        user-select: none;
+        -webkit-user-select: none;
+        outline: none;
+        list-style: none;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+    
+        li {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            line-height: 1rem;
+            margin-bottom: 10px;
+        }
+
+        li:last-of-type {
+            margin-bottom: 0;
+        }
+    
+        .item-title {
+            flex: 1;
+        }
+    
+        .item-price {
+            flex: 0;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .bottom-spacer {
+        height: 20px;
+    }
+    
+    @include mq($until: tablet) {
+        .order-receipt {
+            padding: 10px;
+        }
+    }    
+}

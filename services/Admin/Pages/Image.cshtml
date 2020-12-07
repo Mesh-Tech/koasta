@@ -1,0 +1,62 @@
+@page "{imageId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model ImageModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Image.ImageTitle</span></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            @if(Model.Role.CanAdministerCompany || Model.Role.CanAdministerVenue || Model.Role.CanWorkWithCompany)
+            {
+                <a class="btn btn-sm btn-outline-secondary mr-2" asp-page="/EditImage" asp-route-imageid="@Model.Image.ImageId">
+                    <partial name="_IconEdit" />
+                    <span class="ml-1 align-middle">Edit</span>
+                </a>
+                <div class="btn-group dropleft" role="group">
+                    <button id="manageDrop" type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="manageDrop">
+                        <form class="action-form" method="POST">
+                            <input type="hidden" name="action" value="delete" /> 
+                            <button type="submit" class="dropdown-item">
+                                <partial name="_IconDelete" />
+                                <span class="ml-1 align-middle">Delete</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Details
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong class="col-3">Key</strong>
+                    <div class="col-9">
+                        @(string.IsNullOrWhiteSpace(Model.Image.ImageKey) ? "-" : Model.Image.ImageKey)
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Title</strong>
+                    <div class="col-9">
+                        @(string.IsNullOrWhiteSpace(Model.Image.ImageTitle) ? "-" : Model.Image.ImageTitle)
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <img class="img-fluid" src="@Model?.ImageUrl" alt="@(Model.Image?.ImageTitle ?? "")">
+    </div>
+</section>

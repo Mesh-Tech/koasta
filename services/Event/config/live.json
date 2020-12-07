@@ -1,0 +1,30 @@
+{
+    "logging": {
+        "log_config": "config/log4rs-dev.yml"
+    },
+    "connection": {
+        "database_url": "CHANGEME",
+        "host_port": "5000",
+        "square_app_id": "CHANGEME",
+        "square_access_token": "CHANGEME",
+        "square_sandbox": false,
+        "aws_access_key_id": " CHANGEME",
+        "aws_secret_access_key": "CHANGEME",
+        "s3_bucket_name": "CHANGEME",
+        "rabbitmq_hostname": "internal-rabbitmq-live-rabbitmq-elb-1139617302.eu-west-1.elb.amazonaws.com",
+        "rabbitmq_username": "admin",
+        "rabbitmq_password": "CHANGEME",
+        "apple_push_key": "CHANGEME",
+        "apple_push_team_id": "CHANGEME",
+        "apple_push_key_id": "CHANGEME",
+        "apple_push_bundle_id": "io.meshtech.pubcrawl",
+        "firebase_server_key": "CHANGEME",
+        "firebase_sender_id": "CHANGEME"
+    },
+    "meta": {
+        "path_base": "/event",
+        "debug": false,
+        "enable_access_token_encryption": true,
+        "api_auth_requirements": {}
+    }
+}

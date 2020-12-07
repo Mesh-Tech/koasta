@@ -1,0 +1,97 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <section class="page--dash container-fluid">
+        @if(string.IsNullOrWhiteSpace(Model.Company.ExternalAccountId))
+        {
+            <div class="row row-cols-1 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">👋 Welcome to Koasta!</h5>
+                        <p class="card-text">To finish your account setup, you'll need to link your Square account. This will allow us to process transactions made by your customers.</p>
+                        <form method="post">
+                            <input name="action" value="square-connect" hidden>
+                            <button type="submit" class="btn btn-link btn-sm pt-0 pl-0 pr-0 pb-0">Link Square Account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row row-cols-md-2 mb-0 mt-4 mb-md-4 mb-lg-4 mb-xl-4 justify-content-between">
+            @if(Model.Feed.Items.Count > 0)
+            {
+                <div class="card w-100 w-sm-100 w-md-48 w-lg-48 w-xl-48 mb-4 mb-md-0 mb-lg-0 mb-xl-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Latest news from Koasta</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@Model.Feed.Items[0].Title</h6>
+                        <p class="card-text">@Model.Feed.Items[0].Description</p>
+                        <a href="@Model.Feed.Items[0].Link" target="blank" rel="noreferrer noopener">See more</a>
+                    </div>
+                </div>
+            }
+            <div class="card w-100 w-sm-100 w-md-48 w-lg-48 w-xl-48 mb-4 mb-md-0 mb-lg-0 mb-xl-0">
+                <div class="card-body">
+                    <h5 class="card-title">Need help?</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">If you’re experiencing issues with Koasta, or need to speak with us for any other reason, we’re here to help.</h6>
+                    <p class="card-text">We’re available Monday - Friday 9:00 AM to 5:30 PM.</p>
+                    <a href="https://direct.lc.chat/12037938/" class="card-link">Get in touch</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            @if(Model.Role.CanWorkWithCompany && Model.AverageOrderPerVenue != null)
+            {
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Average spend per-venue in the past day</h5>
+                        <div class="ct-chart chart-bar w-100" data-chart-config="@Model.AverageOrderPerVenue">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row mb-4">
+            @if(Model.Role.CanWorkWithCompany && Model.CompanyOrderStatuses != null)
+            {
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Venue orders in the past day</h5>
+                        <div class="ct-chart chart-bar w-100" data-chart-config="@Model.CompanyOrderStatuses">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+else
+{
+    <section class="page--index">
+        <nav class="nav--index">
+            <div class="index-nav-container index-nav-container--nav">
+                <div class="nav-logo">koasta</div>
+                <div class="index-nav-content index-nav-container">
+                    <a class="plain-link" asp-area="Identity" asp-page="/Account/Login">Sign in</a>
+                </div>
+            </div>
+        </nav>
+        <footer class="index-footer">
+            <div class="index-nav-container index-nav-container--nav">
+                <div class="nav-logo">koasta</div>
+                <span class="index-footer-copyright"></span>
+            </div>
+        </footer>
+    </section>
+}

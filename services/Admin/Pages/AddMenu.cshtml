@@ -1,0 +1,43 @@
+@page "{venueId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model AddMenuModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">New Menu</span></h1>
+    </div>
+
+    <div class="row w-100">
+        <form method="post" class="w-100">
+            <div asp-validation-summary="ModelOnly"></div>
+            <h2 class="h6 pt-3 pb-2 mb-3 border-bottom">Basic information</h2>
+
+            <fieldset class="form-group">
+                <label asp-for="Input.MenuName" data-toggle="tooltip" data-placement="right" title="This is the name of the menu shown in the app. For best results, keep it short and sweet.">Name <partial name="_IconInfo" /></label>
+                <input asp-for="Input.MenuName" class="form-control" />
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.MenuName"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.MenuDescription" data-toggle="tooltip" data-placement="right" title="This is the description of the menu shown in the app. For best results, limit this to a few sentences. If you leave this blank, we won't show a description in the app.">Description <partial name="_IconInfo" /></label>
+                <textarea asp-for="Input.MenuDescription" class="form-control"></textarea>
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.MenuDescription"></span>
+            </fieldset>
+            <fieldset class="form-group">
+                <label asp-for="Input.ProductIds">Menu items</label>
+                <select class="form-control" asp-for="Input.ProductIds" data-input-type="select-input" multiple="multiple">
+                    @foreach(var type in Model.Products)
+                    {
+                        <option value="@type.ProductId">@type.ProductName</option>
+                    }
+                </select>
+                <span class="alert-danger d-inline-block mt-2" asp-validation-for="Input.ProductIds"></span>
+            </fieldset>
+  
+            <button type="submit" class="submit-button btn btn-primary mt-4 mb-4"><span>Save menu</span></button>
+        </form>
+    </div>
+</section>

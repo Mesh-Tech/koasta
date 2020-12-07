@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
+
+namespace Koasta.Shared.PatchModels
+{
+    [CompilerGeneratedAttribute()]
+    public partial class {{className}}Patch
+    {
+        [JsonIgnore]
+        public int ResourceId { get; set; }
+
+        {{#each entries}}
+        public PatchOperation<{{dataType}}> {{fieldName}} { get; set; }
+        {{/each}}
+    }
+}

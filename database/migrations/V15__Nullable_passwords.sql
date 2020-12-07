@@ -1,0 +1,1 @@
+ALTER TABLE "Employee" ALTER COLUMN passwordhash DROP NOT NULL;

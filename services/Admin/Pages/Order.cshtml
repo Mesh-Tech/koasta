@@ -1,0 +1,78 @@
+@page "{orderId:int}"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@using Koasta.Shared.Models
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+@model OrderModel
+
+<section class="page--dash container-fluid">
+    <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h4"><span class="align-middle">@Model.Title</span></h1>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Details
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong class="col-3">Order number</strong>
+                    <div class="col-9">@(Model.Order.OrderNumber)</div>
+                </li>
+                <li class="list-group-item">
+                    <strong class="col-3">Ordered at</strong>
+                    <div class="col-9">@String.Format("{0:dd/MM/yyyy, h:mm tt}", Model.Order.OrderTimeStamp)</div>
+                </li>
+                @if(Model.Role.CanAdministerSystem)
+                {
+                    <li class="list-group-item">
+                        <strong class="col-3">Customer</strong>
+                        <a class="col-9" asp-page="/User" asp-route-userid="@Model.Order.UserId">User @Model.Order.UserId</a>
+                    </li>
+                }
+                <li class="list-group-item">
+                    <strong class="col-3">Status</strong>
+                    <div class="col-9">@Model.GetOrderStatus()</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <div class="card-header">
+                Receipt
+            </div>
+            <ul class="list-group list-group-flush">
+                @foreach(var line in Model.Order.LineItems)
+                {
+                    <li class="list-group-item">
+                        <div class="col-3">@line.ProductName x @line.Quantity</div>
+                        <strong class="col-9">@String.Format(new System.Globalization.CultureInfo("en-GB"), "{0:C}", line.Amount)</strong>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card w-100 mb-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="col-3">Payment reference</div>
+                    <strong class="col-9">@Model.Order.ExternalPaymentId</strong>
+                </li>
+                <li class="list-group-item">
+                    <div class="col-3">Service charge</div>
+                    <strong class="col-9">@String.Format(new System.Globalization.CultureInfo("en-GB"), "{0:C}", @Model.Order.ServiceCharge)</strong>
+                </li>
+                <li class="list-group-item">
+                    <div class="col-3">Total</div>
+                    <strong class="col-9">@String.Format(new System.Globalization.CultureInfo("en-GB"), "{0:C}", @Model.Order.Total)</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
